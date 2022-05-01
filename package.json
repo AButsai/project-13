@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://AButsai.github.io/goit-js-hw-11",
+  "homepage": "https://AButsai.github.io/project-13",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /project-13/"
   },
   "repository": {
     "type": "git",
