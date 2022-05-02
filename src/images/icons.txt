@@ -1,0 +1,4 @@
+close
+footer-svg
+logo
+search
