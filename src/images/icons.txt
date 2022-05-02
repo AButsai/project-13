@@ -2,3 +2,5 @@ close
 footer-svg
 logo
 search
+arrow-left
+arrow-right
