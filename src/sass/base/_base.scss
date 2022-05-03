@@ -1,9 +1,28 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   color: $color-black;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  flex: 0 0 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
 }
 
 .container {

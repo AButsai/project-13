@@ -19,10 +19,15 @@
     />
   </head>
   <body>
-    <div class="container"></div>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <!-- <include src="./partials/example.html"></include> -->
+    <div class="wrapper">
+      <include src="./partials/main-page/header-main.html"></include>
+      <main class="main">
+        <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+        <!-- <include src="./partials/example.html"></include> -->
+      </main>
 
+      <include src="./partials/footer.html"></include>
+    </div>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>

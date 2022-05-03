@@ -4,6 +4,11 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
+// Variables
 @import './variables/variables';
+// Base
 @import './base/reset';
 @import './base/base';
+
+// Footer
+@import './component/footer.scss';
