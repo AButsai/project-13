@@ -6,25 +6,6 @@ body {
   color: $color-black;
 }
 
-.wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.header {
-  flex: 0 0 auto;
-}
-
-.main {
-  flex: 1 1 auto;
-}
-
-.footer {
-  flex: 0 0 auto;
-}
-
 .container {
   max-width: 320px;
   margin: 0 auto;
