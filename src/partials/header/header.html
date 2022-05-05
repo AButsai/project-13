@@ -1,7 +1,7 @@
-<header class="header-main">
+<header class="header">
   <div class="container">
     <div class="wrap">
-      <a class="logo__link" href="#">
+      <a class="logo__link" href="#" data-home>
         <svg class="logo__svg">
           <use href="./images/icons.svg#logo"></use>
         </svg>
@@ -9,8 +9,10 @@
       </a>
       <nav class="nav">
         <ul class="nav__list">
-          <li class="nav__item nav__item--margin"><a class="nav__link" href="#">Home</a></li>
-          <li class="nav__item"><a class="nav__link" href="#">my library</a></li>
+          <li class="nav__item nav__item--margin">
+            <a class="nav__link" href="#" data-home>Home</a>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#" data-library>my library</a></li>
         </ul>
       </nav>
     </div>
@@ -20,5 +22,10 @@
       </label>
       <button class="form__btn" type="submit"></button>
     </form>
+
+    <div class="library hidden">
+      <button class="library__btn active" type="button" data-watched>Watched</button>
+      <button class="library__btn library__btn--margin" type="button" data-queue>queue</button>
+    </div>
   </div>
 </header>
