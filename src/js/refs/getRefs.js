@@ -10,6 +10,9 @@ function getRefs() {
     buttons: document.querySelector('.library'),
     //Spinner
     spinner: document.querySelector('.load-spinner'),
+    closeModalBtn: document.querySelector('.closeModal'),
+    backdrop: document.querySelector('.backdrop'),
+    modal: document.querySelector('.modal'),
   };
 }
 
