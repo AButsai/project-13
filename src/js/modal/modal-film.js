@@ -1,38 +1,53 @@
-function makeModal() {
-  return `
-  <div class="film-card">
+import getRefs from '../refs/getRefs.js';
+
+const { closeModalBtn, backdrop, modal } = getRefs();
+
+function makeModal({
+  poster_path,
+  title,
+  vote_average,
+  vote_count,
+  popularity,
+  original_title,
+  genres,
+}) {
+  closeModalBtn.addEventListener('click', onCloseBtnClick);
+  document.addEventListener('keydown', onEscBtnPress);
+
+  const modalFilmMake = (() => {
+    `<div class="film-card">
   <button data-film-card-close type="button" class="film-card__button-close">
     <svg class="backdrop__icon-close">
       <use href="/images/icons.svg#close"></use>
     </svg>
   </button>
   <div class="film-card_imageContainer">
-    <img src="/images/im.jpg" alt="film picture" class="film-card_image" />
+    <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="film-card_image" />
   </div>
 
   <div class="film-card_descriptionContainer">
-    <h2 class="film-card_title">A FISTFUL OF LEAD</h2>
+    <h2 class="film-card_title">${title}</h2>
 
     <ul class="film-card-list">
       <li class="film-card-list_item">
         <p class="film-card-list_title">Vote / Votes</p>
         <p>
-          <span class="film-card-list_text film-card-list_text-colorOrange">7.3</span>
+          <span class="film-card-list_text film-card-list_text-colorOrange">${vote_average}</span>
           <span class="film-card-list_text">/</span>
-          <span class="film-card-list_text film-card-list_text-colorGrey">1260</span>
+          <span class="film-card-list_text film-card-list_text-colorGrey">${vote_count}</span>
         </p>
       </li>
       <li class="film-card-list_item">
         <p class="film-card-list_title">Popularity</p>
-        <p class="film-card-list_text">100.2</p>
+        <p class="film-card-list_text">${popularity}</p>
       </li>
       <li class="film-card-list_item">
         <p class="film-card-list_title">Original Title</p>
-        <p class="film-card-list_text">A FISTFUL OF LEAD</p>
+        <p class="film-card-list_text">${original_title}</p>
       </li>
       <li class="film-card-list_item">
         <p class="film-card-list_title">Genre</p>
-        <p class="film-card-list_text">Western</p>
+        <p class="film-card-list_text">${genres}</p>
       </li>
     </ul>
 
@@ -60,19 +75,19 @@ function makeModal() {
     </ul>
   </div>
 </div>
+`;
+  }).join('');
 
-
-  `;
+  modal.innerHTML = makeModal;
 }
-
-const refs = {
-  closeBtn: document.querySelector('.closeModal'),
-  backdrop: document.querySelector('.overlay'),
-};
-
-closeBtn.addEventListener('click', onCloseBtnClick);
-backdrop.addEventListener('click', onCloseBtnClick);
 
 function onCloseBtnClick() {
   backdrop.classList.add('visually-hidden');
+  document.body.removeEventListener('keypress', keyPress);
+}
+
+function keyPress(e) {
+  if (e.key === 'Escape') {
+    onCloseBtnClick();
+  }
 }
