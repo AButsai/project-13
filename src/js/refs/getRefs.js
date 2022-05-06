@@ -8,6 +8,8 @@ function getRefs() {
     form: document.querySelector('.form'),
     header: document.querySelector('.header'),
     buttons: document.querySelector('.library'),
+    //Spinner
+    spinner: document.querySelector('.load-spinner'),
   };
 }
 
