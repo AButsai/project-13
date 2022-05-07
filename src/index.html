@@ -18,14 +18,24 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body >
     <div class="wrapper">
       <include src="./partials/header/header.html"></include>
       <main class="main">
+<<<<<<< HEAD
         <div id="root"></div>
         <include src="./partials/main/gallery_container.html"></include>
+=======
+        <div id="root">
+          <!-- Load Spinner -->
+          <span class="load-spinner hidden"><svg width="40" height="40"  ><circle cx="20" cy="20" r="15"></svg></span>
+        </div>
+        
+>>>>>>> 1c5f4931eaea24790b495d3185265f4047217481
       </main>
     </div>
+      
+      <button class="btn">Open Loader</button>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>

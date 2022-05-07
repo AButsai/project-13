@@ -9,7 +9,7 @@ export default class MoviesService {
    * Returns trending movies
    */
   getTrandingMovies() {
-    const url = `${this.baseUrl}/trending/movie/day?api_key=${this.apiKey}`;
+    const url = `${this.baseUrl}/popula?api_key=${this.apiKey}&language=en-USpage=${this.page}`;
     const urlFetch = fetch(url, { mode: 'cors' });
     return urlFetch;
   }
