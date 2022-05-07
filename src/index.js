@@ -39,4 +39,3 @@ function onCardFilmClick(e){
     fetchForModal(currentCardIndex).then(response=>renderModal(response));  
 }
 //--------------------------------------------------
-

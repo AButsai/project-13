@@ -1,4 +1,4 @@
-.header-main {
+.header {
   position: relative;
   padding-top: 40px;
   padding-bottom: 92px;
@@ -31,6 +31,14 @@
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: url('../images/bg-header-main-desctop@2x.jpg');
     }
+  }
+}
+
+.header-library {
+  background-image: url('../images/bg-header-library.jpg');
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url('../images/bg-header-library@2x.jpg');
   }
 }
 
@@ -94,6 +102,7 @@
 }
 
 .form {
+  // display: none;
   position: relative;
   z-index: 5;
 
@@ -136,4 +145,31 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.library {
+  width: 281px;
+  position: relative;
+  z-index: 5;
+  margin: 0 auto;
+}
+
+.library__btn {
+  width: 129px;
+  text-transform: uppercase;
+  color: $color-white;
+  padding: 14px 36px 12px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  margin-right: 20px;
+}
+
+.library__btn--margin {
+  margin-right: 0;
+}
+
+.library__btn.active {
+  background-color: $bg-active;
+  border: 1px solid transparent;
 }
