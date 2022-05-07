@@ -1,8 +1,9 @@
-import genresJSON from './json/genres/genres.json';
-export default changeGenresIdForName;      // принимает  responce.results
+import genresJSON from '../../json/./genres/genres.json';
+import getRefs from '../refs/getRefs'
+
 
 // const cards = document.querySelector('.cards');  
-
+createCardsList();
 
 function changeGenresIdForName(films){
     let filmsInfo = [];
@@ -40,9 +41,13 @@ function correctGenres(filmsInfo){
     })
 }
 
+function createCardsList(){
+  return getRefs().root.innerHTML = '<ul class="cards__list"></ul>';  
+}
 
 function renderFilmCard(filmsInfo){
     const urlImg = 'https://image.tmdb.org/t/p/w500';
+
     const markup = filmsInfo.map(film =>
         `<li>
     <a href="">
@@ -53,5 +58,7 @@ function renderFilmCard(filmsInfo){
         <p>${film.vote_average}</p>
     </a>
         </li>`).join("");
-        // cards.insertAdjacentHTML('beforeend', markup); 
+        getRefs().cardslist.insertAdjacentHTML('beforeend', markup); 
 }
+
+export default changeGenresIdForName;      // принимает  responce.results
