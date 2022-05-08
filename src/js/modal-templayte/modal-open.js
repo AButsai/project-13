@@ -1,16 +1,17 @@
-import getRefs from '../refs/getRefs'
-import renderModal from './js/modal-templayte/modal-templayte'
-// import fetchForModal from 
+// import getRefs from '../refs/getRefs';
+// import renderModal from '../modal-templayte/modal-templayte';
+// // import fetchForModal from
+// const { cardslist } = getRefs();
 
-    // Запрос на модалку
-getRefs().cardslist.addEventListener('click', onCardFilmClick);
+// // Запрос на модалку
+// cardslist.addEventListener('click', onCardFilmClick);
 
-function onCardFilmClick(e){
-    e.preventDefault();
-    const currentCardIndex = e.target.dataset.index;
-    console.log(currentCardIndex)
-    // lightboxEl.classList.add('is-open');
-    fetchForModal(currentCardIndex).then(response=>renderModal(response));  
-}
+// function onCardFilmClick(e) {
+//   e.preventDefault();
+//   const currentCardIndex = e.target.dataset.index;
+//   console.log(currentCardIndex);
+//   // lightboxEl.classList.add('is-open');
+//   fetchForModal(currentCardIndex).then(response => renderModal(response));
+// }
 
-export default onCardFilmClick;
+// export default onCardFilmClick;
