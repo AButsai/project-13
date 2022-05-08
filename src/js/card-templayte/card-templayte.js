@@ -1,7 +1,6 @@
 import genresJSON from '../../json/./genres/genres.json';
-// import createFilmsList from '.././library/library';
+import createFilmsList from '../library/library';
 import getRefs from '../refs/getRefs';
-// const { cardslist } = getRefs();
 
 // принимает  responce.results
 export const changeGenresIdForName = function(films) {

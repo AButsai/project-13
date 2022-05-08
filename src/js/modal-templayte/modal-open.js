@@ -1,10 +1,10 @@
 import getRefs from '../refs/getRefs';
 import renderModal from '../modal-templayte/modal-templayte';
-// import fetchForModal from
+import fetchForModal from '../../index'
 const { cardslist } = getRefs();
 
 // Запрос на модалку
-cardslist.addEventListener('click', onCardFilmClick);
+// cardslist.addEventListener('click', onCardFilmClick);
 
 function onCardFilmClick(e) {
   e.preventDefault();
