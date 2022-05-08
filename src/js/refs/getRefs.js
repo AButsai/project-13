@@ -13,9 +13,6 @@ function getRefs() {
     closeModalBtn: document.querySelector('.closeModal'),
     backdrop: document.querySelector('.backdrop'),
     modal: document.querySelector('.modal'),
-    //Main
-    root: document.querySelector('#root'),
-    cardslist: document.querySelector('.cards__list'),
   };
 }
 

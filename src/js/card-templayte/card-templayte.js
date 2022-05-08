@@ -1,9 +1,8 @@
 import genresJSON from '../../json/./genres/genres.json';
 import getRefs from '../refs/getRefs'
+import createFilmsList  from '.././library/library';
 
 
-// const cards = document.querySelector('.cards');  
-createCardsList();
 
 function changeGenresIdForName(films){
     let filmsInfo = [];
@@ -29,7 +28,7 @@ genresJSON.map(({id,name}) => {
     filmsInfo.push(filmWithGenres);   
 })
 correctGenres(filmsInfo)
-renderFilmCard(filmsInfo)
+createFilmsList(filmsInfo)
 }
 
 function correctGenres(filmsInfo){
@@ -41,15 +40,18 @@ function correctGenres(filmsInfo){
     })
 }
 
-function createCardsList(){
-  return getRefs().root.innerHTML = '<ul class="cards__list"></ul>';  
-}
+// кусок кода Елены
+// --------------------------------------
+//  function createFilmsList(films){
+//     const markup = films.map((film) => renderFilmCard(film)).join('');
+//     getRefs().cardslist.insertAdjacentHTML('beforeend', markup); 
+//  }
+// --------------------------------------
 
-function renderFilmCard(filmsInfo){
+function renderFilmCard(film){
     const urlImg = 'https://image.tmdb.org/t/p/w500';
 
-    const markup = filmsInfo.map(film =>
-        `<li>
+    return `<li class="film-card">
     <a href="">
         <img src="${urlImg}${film.poster_path}" alt="${film.title}" data-index = ${film.id}>
         <h2>${film.title}</h2>
@@ -57,8 +59,8 @@ function renderFilmCard(filmsInfo){
         | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ""}</p>             
         <p>${film.vote_average}</p>
     </a>
-        </li>`).join("");
-        getRefs().cardslist.insertAdjacentHTML('beforeend', markup); 
+        </li>`;
 }
 
 export default changeGenresIdForName;      // принимает  responce.results
+export renderFilmCard;
