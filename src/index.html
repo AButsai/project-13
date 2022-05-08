@@ -23,15 +23,16 @@
       <include src="./partials/header/header.html"></include>
       <main class="main">
         <include src="./partials/modal/modal-base.html"></include>
+               
         <div id="root">
+          <div class="container">
+            <ul class="films-grid"></ul></div>
           <!-- Load Spinner -->
           <span class="load-spinner hidden"><svg width="40" height="40"  ><circle cx="20" cy="20" r="15"></svg></span>
         </div>
-        
       </main>
+      <include src="./partials/footer/footer.html"></include>
     </div>
-      
-      <button class="btn">Open Loader</button>
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
