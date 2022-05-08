@@ -10,7 +10,7 @@ function getRefs() {
     buttons: document.querySelector('.library'),
     //Spinner
     spinner: document.querySelector('.load-spinner'),
-    closeModalBtn: document.querySelector('.closeModal'),
+    closeModalBtn: document.querySelector('.modal_button-close'),
     backdrop: document.querySelector('.backdrop'),
     modal: document.querySelector('.modal'),
   };

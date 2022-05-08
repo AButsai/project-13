@@ -2,6 +2,32 @@ import getRefs from '../refs/getRefs.js';
 
 const { closeModalBtn, backdrop, modal } = getRefs();
 
+const handleEsc = e => {
+  if (e.key === 'Escape') {
+    backdrop.classList.add('visually-hidden');
+    window.removeEventListener('keydown', handleEsc);
+  }
+};
+
+const close = e => {
+  if (e.target === e.currentTarget) {
+    backdrop.classList.add('visually-hidden');
+  }
+};
+
+closeModalBtn.addEventListener('click', () => {
+  backdrop.classList.add('visually-hidden');
+});
+
+backdrop.addEventListener('click', close);
+
+window.addEventListener('keydown', handleEsc);
+
+function countGenres(data) {
+  const filmGenres = data.map(({ name }) => name).join(', ');
+  return filmGenres;
+}
+
 function makeModal({
   poster_path,
   title,
@@ -10,17 +36,10 @@ function makeModal({
   popularity,
   original_title,
   genres,
+  overview,
 }) {
-  closeModalBtn.addEventListener('click', onCloseBtnClick);
-  document.addEventListener('keydown', onEscBtnPress);
-
-  const modalFilmMake = (() => {
-    `<div class="film-card">
-  <button data-film-card-close type="button" class="film-card__button-close">
-    <svg class="backdrop__icon-close">
-      <use href="/images/icons.svg#close"></use>
-    </svg>
-  </button>
+  return `<div class="film-card">
+  
   <div class="film-card_imageContainer">
     <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="film-card_image" />
   </div>
@@ -47,18 +66,13 @@ function makeModal({
       </li>
       <li class="film-card-list_item">
         <p class="film-card-list_title">Genre</p>
-        <p class="film-card-list_text">${genres}</p>
+        <p class="film-card-list_text">${countGenres}</p>
       </li>
     </ul>
 
     <h2 class="film-card_about">About</h2>
     <p class="film-card_text">
-      Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most
-      corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the
-      other three escapes with bags of gold hide out in the abandoned gold mine where they happen
-      across another gang of three – who themselves were planning to hit the very same bank! As
-      tensions rise, things go from bad to worse as they realise the bags of gold are filled with
-      lead... they’ve been double crossed – but by who and how?
+    ${overview}
     </p>
 
     <ul class="button-list">
@@ -76,18 +90,6 @@ function makeModal({
   </div>
 </div>
 `;
-  }).join('');
-
-  modal.innerHTML = makeModal;
 }
 
-function onCloseBtnClick() {
-  backdrop.classList.add('visually-hidden');
-  document.body.removeEventListener('keypress', keyPress);
-}
-
-function keyPress(e) {
-  if (e.key === 'Escape') {
-    onCloseBtnClick();
-  }
-}
+modal.insertAdjacentHTML('beforeend', makeModal({}));
