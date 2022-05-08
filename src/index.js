@@ -1,10 +1,10 @@
 import './sass/main.scss';
 import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
-// import renderFilmCard from './js/card-templayte/card-templayte';
+import renderFilmCard from './js/card-templayte/card-templayte';
 import getRefs from './js/refs/getRefs';
 import onCardFilmClick from './js/modal-templayte/modal-open';
-import { renderFilmCard } from './js/card-templayte/card-templayte.js';
+// import { renderFilmCard } from './js/card-templayte/card-templayte.js';
 // Для теста:
 
 // 1)запрос на популярные фильмы
