@@ -9,6 +9,8 @@ function getRefs() {
     form: document.querySelector('.form'),
     header: document.querySelector('.header'),
     buttons: document.querySelector('.library'),
+    // Main
+    cardslist: document.querySelector('.films-grid'),
     //Spinner
     spinner: document.querySelector('.load-spinner'),
     //Modal
