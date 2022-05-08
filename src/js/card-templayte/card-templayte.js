@@ -1,5 +1,4 @@
 import genresJSON from '../../json/./genres/genres.json';
-import getRefs from '../refs/getRefs'
 import createFilmsList  from '.././library/library';
 
 
@@ -62,5 +61,5 @@ function renderFilmCard(film){
         </li>`;
 }
 
-export default changeGenresIdForName;      // принимает  responce.results
-export renderFilmCard;
+export default changeGenresIdForName     // принимает  responce.results
+export renderFilmCard

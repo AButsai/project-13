@@ -2,8 +2,8 @@ import './sass/main.scss';
 import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
 import templayte from './js/card-templayte/card-templayte';
-import renderModal from './js/modal-templayte/modal-templayte'
 import getRefs from'./js/refs/getRefs';
+import onCardFilmClick from './js/modal-templayte/modal-open';
 
 
 // Для теста: 
@@ -26,16 +26,3 @@ import getRefs from'./js/refs/getRefs';
 //     return film;
 // }
 
-
-    // Запрос на модалку
-// --------------------------------------------------
-getRefs().cardslist.addEventListener('click', onCardFilmClick);
-
-function onCardFilmClick(e){
-    e.preventDefault();
-    const currentCardIndex = e.target.dataset.index;
-    console.log(currentCardIndex)
-    // lightboxEl.classList.add('is-open');
-    fetchForModal(currentCardIndex).then(response=>renderModal(response));  
-}
-//--------------------------------------------------
