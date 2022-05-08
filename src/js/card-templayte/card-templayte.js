@@ -62,4 +62,4 @@ function renderFilmCard(film){
 }
 
 export default changeGenresIdForName     // принимает  responce.results
-export renderFilmCard
+export function renderFilmCard(film)
