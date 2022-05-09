@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+
 export default class MoviesService {
   constructor({ apiKey, baseUrl }) {
     this.page = 1;
@@ -12,7 +13,10 @@ export default class MoviesService {
    * Returns trending movies
    */
   getPopularMovies() {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-USpage=${this.page}`;
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=${
+      this.page
+    }`;
+    console.log(this.page);
     return fetch(url, { mode: 'cors' })
       .then(response => response.json())
       .then(({ results }) => {
@@ -21,30 +25,42 @@ export default class MoviesService {
   }
 
   searchMovies() {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${
+      this.page
+    }&query=${this.searchQuery}`;
 
-    return this.cacheGenresList()
-      .then(_ => fetch(url, { mode: 'cors' }))
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.status);
-        }
-        return response.json();
-      })
-      .then(({ results }) => {
-        return results;
-      })
-      .then(movies =>
-        movies.map(movie => {
-          const genres = movie.genre_ids.map(id => this.genres.find(genre => genre.id === id));
-          return {
-            ...movie,
-            genre_ids: undefined,
-            genres,
-          };
-        }),
-      )
-      .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
+    return (
+      this.cacheGenresList()
+        .then(_ => fetch(url, { mode: 'cors' }))
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+          return response.json();
+        })
+        //Прерываем выполнение кода, если страница больше, чем та что в респонсе
+        .then(responce => {
+          if (this.page > responce.total_pages) {
+            return;
+          }
+          console.log(responce.total_pages);
+          return responce;
+        })
+        .then(({ results }) => {
+          return results;
+        })
+        .then(movies =>
+          movies.map(movie => {
+            const genres = movie.genre_ids.map(id => this.genres.find(genre => genre.id === id));
+            return {
+              ...movie,
+              genre_ids: undefined,
+              genres,
+            };
+          }),
+        )
+        .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`))
+    );
   }
 
   getGenresList() {
