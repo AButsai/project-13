@@ -8,6 +8,8 @@ const handleClickHome = () => {
   buttons.classList.add('hidden');
   libraryLink.classList.remove('current');
   homeLinkCurrent.classList.add('current');
+  libraryWatched.classList.add('active');
+  libraryQueue.classList.remove('active');
 };
 
 const handleClickLibrary = () => {
