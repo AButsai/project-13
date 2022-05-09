@@ -1,6 +1,5 @@
 import MoviesService from './apiMovies';
 import getRefs from '../refs/getRefs';
-import Notiflix from 'notiflix';
 
 const API_KEY = process.env.API_KEY;
 
@@ -19,15 +18,7 @@ function onSearch(e) {
     return;
   }
   moviesService.newSearchName(searchQuery);
-  // moviesService.searchMovies(searchQuery);
-  // .then(data => console.log(data))
-  // .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
 
-  // function renderMoviesInfo(movies) {
-  //   if (movies.length > 50) {
-  //     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
-  //   }
-  // }
   moviesService.searchMovies();
   moviesService.resetPage();
   const popularMovies = moviesService.getPopularMovies(searchQuery);

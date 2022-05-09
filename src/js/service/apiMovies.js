@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 export default class MoviesService {
   constructor({ apiKey, baseUrl }) {
     this.page = 1;
