@@ -4,6 +4,7 @@ export default class MoviesService {
     this.apiKey = apiKey;
     this.baseUrl = baseUrl;
     this.genres = [];
+    this.searchQuery = '';
   }
 
   /**
@@ -18,8 +19,8 @@ export default class MoviesService {
       });
   }
 
-  searchMovies(searchQuery) {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${searchQuery}`;
+  searchMovies() {
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
 
     return this.cacheGenresList()
       .then(_ => fetch(url, { mode: 'cors' }))
@@ -41,7 +42,8 @@ export default class MoviesService {
             genres,
           };
         }),
-      );
+      )
+      .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
   }
 
   getGenresList() {
@@ -59,6 +61,10 @@ export default class MoviesService {
     }
 
     return promise;
+  }
+
+  newSearchName(newName) {
+    this.searchQuery = newName;
   }
 
   incrementPage() {
