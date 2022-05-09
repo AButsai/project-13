@@ -12,7 +12,7 @@ function getRefs() {
     // Main
     cardslist: document.querySelector('.films-grid'),
     //Spinner
-    spinner: document.querySelector('.load-spinner'),
+    // spinner: document.querySelector('.load-spinner'),
     //Modal
     closeModalBtn: document.querySelector('.closeModal'),
     backdrop: document.querySelector('.backdrop'),

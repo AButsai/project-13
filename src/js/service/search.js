@@ -1,5 +1,9 @@
 import MoviesService from './apiMovies';
 import getRefs from '../refs/getRefs';
+import infinityScroll from '../infinity-scroll/infinity-scroll';
+import createFilmsList from '../library/library';
+import Notiflix from 'notiflix';
+import smoothScroll from '../smooth-scroll/smooth-scroll';
 
 const API_KEY = process.env.API_KEY;
 
@@ -18,8 +22,44 @@ function onSearch(e) {
     return;
   }
   moviesService.newSearchName(searchQuery);
-
-  moviesService.searchMovies();
   moviesService.resetPage();
-  const popularMovies = moviesService.getPopularMovies(searchQuery);
+  //Поесле сабмита чистим ХТМЛ
+  getRefs().cardslist.innerHTML = '';
+  //Вызываем рендер поиска
+  renderSearch();
+}
+//Рендер популярных фильмов
+function renderPopular() {
+  const popularMovies = moviesService
+    .getPopularMovies()
+    .then(response => {
+      //Отрисовка
+      createFilmsList(response);
+      //Увеличиваем счетчик страниц
+      moviesService.incrementPage();
+      //Бесконечный скролл
+      infinityScroll(renderPopular);
+      //Начиная со второй страницы делает мягкую прокрутку
+      if (moviesService.page > 2) {
+        smoothScroll();
+      }
+    })
+    .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
+}
+//Дефолтный вызов для главной страницы
+renderPopular();
+
+//Рендер фильмов по поиску
+function renderSearch() {
+  const searchMovies = moviesService
+    .searchMovies()
+    .then(response => {
+      createFilmsList(response);
+      moviesService.incrementPage();
+      infinityScroll(renderSearch);
+      if (moviesService.page > 2) {
+        smoothScroll();
+      }
+    })
+    .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
 }
