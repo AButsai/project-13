@@ -17,7 +17,7 @@ export default function infinityScroll(createResponse) {
         observer.unobserve(entry.target);
 
         //Запускаем спиннер после последнего елемента списка
-        spinnerIsOn(lastImg);
+        spinnerIsOn();
 
         //Функция запроса и отрисовки
         setTimeout(createResponse, 750);

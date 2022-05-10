@@ -10,6 +10,7 @@ function getRefs() {
     header: document.querySelector('.header'),
     buttons: document.querySelector('.library'),
     // Main
+    main: document.querySelector('.main'),
     cardslist: document.querySelector('.films-grid'),
     //Spinner
 

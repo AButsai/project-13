@@ -1,14 +1,16 @@
+import getRefs from '../refs/getRefs';
+const { main } = getRefs();
 const spinner = ` <div class="spinner-wrapper"><span class="load-spinner isOn"><svg width="40" height="40"><circle cx="20" cy="20" r="15"></svg></span></div>`;
 //SpinnerIsOn
-export default function spinnerIsOn(element) {
+
+export default function spinnerIsOn() {
   //Добавлем спиннер
-  element.insertAdjacentHTML('afterend', spinner);
+  main.insertAdjacentHTML('afterend', spinner);
 
   // Таймаут на продолжительность работы спиннера
   const spinnerIsOn = document.querySelector('.spinner-wrapper');
   //Удаляем спиннер после анимации
   setTimeout(() => {
     spinnerIsOn.remove();
-  }, 700);
-  console.log('spinner');
+  }, 800);
 }
