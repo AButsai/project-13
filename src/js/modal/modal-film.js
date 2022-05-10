@@ -1,6 +1,6 @@
 import getRefs from '../refs/getRefs.js';
 
-const { closeModalBtn, backdrop } = getRefs();
+const { closeModalBtn, backdrop, modal } = getRefs();
 
 const handleEsc = e => {
   if (e.key === 'Escape') {
@@ -12,16 +12,16 @@ const handleEsc = e => {
 const close = e => {
   if (e.target === e.currentTarget) {
     backdrop.classList.add('visually-hidden');
+    window.removeEventListener('keydown', handleEsc);
   }
 };
 
 closeModalBtn.addEventListener('click', () => {
   backdrop.classList.add('visually-hidden');
+  window.removeEventListener('keydown', handleEsc);
 });
 
 backdrop.addEventListener('click', close);
-
-window.addEventListener('keydown', handleEsc);
 
 export function makeModal({
   poster_path,
@@ -33,40 +33,42 @@ export function makeModal({
   genres,
   overview,
 }) {
-  return `<div class="modal-film-card">
+  window.addEventListener('keydown', handleEsc);
+
+  return `<div class="modal-film">
   
-  <div class="modal-film-card_imageContainer">
+  <div class="modal-film_imageContainer">
     <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="film-card_image" />
   </div>
 
-  <div class="modal-film-card_descriptionContainer">
-    <h2 class="modal-film-card_title">${title}</h2>
+  <div class="modal-film_descriptionContainer">
+    <h2 class="modal-film_title">${title}</h2>
 
-    <ul class="modal-film-card-list">
-      <li class="modal-film-card-list_item">
-        <p class="modal-film-card-list_title">Vote / Votes</p>
+    <ul class="modal-film-list">
+      <li class="modal-film-list_item">
+        <p class="modal-film-list_title">Vote / Votes</p>
         <p>
-          <span class="modal-film-card-list_text modal-film-card-list_text-colorOrange">${vote_average}</span>
-          <span class="modal-film-card-list_text">/</span>
-          <span class="modal-film-card-list_text modal-film-card-list_text-colorGrey">${vote_count}</span>
+          <span class="modal-film-list_text modal-film-list_text-colorOrange">${vote_average}</span>
+          <span class="modal-film-list_text">/</span>
+          <span class="modal-film-list_text modal-film-list_text-colorGrey">${vote_count}</span>
         </p>
       </li>
-      <li class="modal-film-card-list_item">
-        <p class="modal-film-card-list_title">Popularity</p>
-        <p class="modal-film-card-list_text">${popularity}</p>
+      <li class="modal-film-list_item">
+        <p class="modal-film-list_title">Popularity</p>
+        <p class="modal-film-list_text">${popularity}</p>
       </li>
-      <li class="modal-film-card-list_item">
-        <p class="modal-film-card-list_title">Original Title</p>
-        <p class="modal-film-card-list_text">${original_title}</p>
+      <li class="modal-film-list_item">
+        <p class="modal-film-list_title">Original Title</p>
+        <p class="modal-film-list_text">${original_title}</p>
       </li>
-      <li class="modal-film-card-list_item">
-        <p class="modal-film-card-list_title">Genre</p>
-        <p class="modal-film-card-list_text">${genres}</p>
+      <li class="modal-film-list_item">
+        <p class="modal-film-list_title">Genre</p>
+        <p class="modal-film-list_text">${genres}</p>
       </li>
     </ul>
 
-    <h2 class="modal-film-card_about">About</h2>
-    <p class="modal-film-card_text">
+    <h2 class="modal-film_about">About</h2>
+    <p class="modal-film_text">
     ${overview}
     </p>
 
@@ -87,4 +89,8 @@ export function makeModal({
 `;
 }
 
-// modal.insertAdjacentHTML('beforeend', makeModal({}));
+// function open() {
+//   modal.insertAdjacentHTML('beforeend', makeModal({}));
+//   backdrop.classList.remove('visually-hidden');
+// }
+// open();
