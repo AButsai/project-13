@@ -1,11 +1,12 @@
 import MoviesService from './apiMovies';
 import getRefs from '../refs/getRefs';
 import infinityScroll from '../infinity-scroll/infinity-scroll';
-import createFilmsList from '../library/library';
+import {changeGenresIdForName} from '../card-templayte/card-templayte';
 import Notiflix from 'notiflix';
 import smoothScroll from '../smooth-scroll/smooth-scroll';
 
 const API_KEY = process.env.API_KEY;
+
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -34,7 +35,7 @@ function renderPopular() {
     .getPopularMovies()
     .then(response => {
       //Отрисовка
-      createFilmsList(response);
+      changeGenresIdForName(response);
       //Увеличиваем счетчик страниц
       moviesService.incrementPage();
       //Бесконечный скролл

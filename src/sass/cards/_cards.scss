@@ -1,0 +1,26 @@
+.card-img{
+    border-radius: 5px;
+    padding-bottom: 10px;
+    
+    @media (min-width: 768px) {
+        padding-bottom: 8px;
+      }
+}
+
+
+
+.card-title{
+    color: $color-black;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.card-genres{
+    color: $bg-active;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}

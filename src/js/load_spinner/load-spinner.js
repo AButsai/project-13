@@ -5,7 +5,7 @@ export default function spinnerIsOn(element) {
   element.insertAdjacentHTML('afterend', spinner);
 
   // Таймаут на продолжительность работы спиннера
-  const spinnerIsOn = document.querySelector('.load-spinner');
+  const spinnerIsOn = document.querySelector('.spinner-wrapper');
   //Удаляем спиннер после анимации
   setTimeout(() => {
     spinnerIsOn.remove();
