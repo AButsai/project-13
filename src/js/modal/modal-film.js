@@ -6,6 +6,7 @@ const handleEsc = e => {
   if (e.key === 'Escape') {
     backdrop.classList.add('visually-hidden');
     window.removeEventListener('keydown', handleEsc);
+    modal.innerHTML = '';
   }
 };
 
@@ -13,17 +14,19 @@ const close = e => {
   if (e.target === e.currentTarget) {
     backdrop.classList.add('visually-hidden');
     window.removeEventListener('keydown', handleEsc);
+    modal.innerHTML = '';
   }
 };
 
 closeModalBtn.addEventListener('click', () => {
   backdrop.classList.add('visually-hidden');
   window.removeEventListener('keydown', handleEsc);
+  modal.innerHTML = '';
 });
 
 backdrop.addEventListener('click', close);
 
-export function makeModal({
+function makeModal({
   poster_path,
   title,
   vote_average,
@@ -89,8 +92,7 @@ export function makeModal({
 `;
 }
 
-// function open() {
-//   modal.insertAdjacentHTML('beforeend', makeModal({}));
-//   backdrop.classList.remove('visually-hidden');
-// }
-// open();
+export function openModal(data) {
+  modal.insertAdjacentHTML('beforeend', makeModal(data));
+  backdrop.classList.remove('visually-hidden');
+}
