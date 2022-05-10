@@ -39,24 +39,15 @@ function correctGenres(filmsInfo) {
   });
 }
 
-// кусок кода Елены
-// --------------------------------------
-// export const createFilmsList = function(films) {
-//   const markup = films.map(film => renderFilmCard(film)).join('');
-//   getRefs().cardslist.insertAdjacentHTML('beforeend', markup);
-// };
-// --------------------------------------
-
 export const renderFilmCard = function(film) {
   const urlImg = 'https://image.tmdb.org/t/p/w500';
 
   return `<li class="film-card">
     <a href="">
-        <img src="${urlImg}${film.poster_path}" alt="${film.title}" data-index = ${film.id}>
-        <h2>${film.title}</h2>
-        <p>${film.genres}
+        <img class="card-img" src="${urlImg}${film.poster_path}" alt="${film.title}" data-index = ${film.id}>
+        <h2 class="card-title">${film.title.toUpperCase()}</h2>
+        <p class="card-genres">${film.genres}
         | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>             
-        <p>${film.vote_average}</p>
     </a>
         </li>`;
 };

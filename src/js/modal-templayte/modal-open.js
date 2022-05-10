@@ -1,5 +1,4 @@
 import getRefs from '../refs/getRefs';
-import renderModal from '../modal-templayte/modal-templayte';
 import fetchForModal from '../../index'
 const { cardslist } = getRefs();
 
