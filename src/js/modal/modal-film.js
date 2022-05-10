@@ -1,25 +1,22 @@
 import getRefs from '../refs/getRefs.js';
 
-const { closeModalBtn, backdrop, modal } = getRefs();
+const { closeModalBtn, backdrop } = getRefs();
 
 const handleEsc = e => {
   if (e.key === 'Escape') {
     backdrop.classList.add('visually-hidden');
     window.removeEventListener('keydown', handleEsc);
-    modal.innerHTML = '';
   }
 };
 
 const close = e => {
   if (e.target === e.currentTarget) {
     backdrop.classList.add('visually-hidden');
-    modal.innerHTML = '';
   }
 };
 
 closeModalBtn.addEventListener('click', () => {
   backdrop.classList.add('visually-hidden');
-  modal.innerHTML = '';
 });
 
 backdrop.addEventListener('click', close);
@@ -90,4 +87,4 @@ export function makeModal({
 `;
 }
 
-modal.insertAdjacentHTML('beforeend', makeModal({}));
+// modal.insertAdjacentHTML('beforeend', makeModal({}));
