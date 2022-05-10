@@ -16,7 +16,6 @@ export default class MoviesService {
     const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=${
       this.page
     }`;
-    console.log(this.page);
     return fetch(url, { mode: 'cors' })
       .then(response => response.json())
       .then(({ results }) => {
