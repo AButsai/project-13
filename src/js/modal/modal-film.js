@@ -6,17 +6,20 @@ const handleEsc = e => {
   if (e.key === 'Escape') {
     backdrop.classList.add('visually-hidden');
     window.removeEventListener('keydown', handleEsc);
+    modal.innerHTML = '';
   }
 };
 
 const close = e => {
   if (e.target === e.currentTarget) {
     backdrop.classList.add('visually-hidden');
+    modal.innerHTML = '';
   }
 };
 
 closeModalBtn.addEventListener('click', () => {
   backdrop.classList.add('visually-hidden');
+  modal.innerHTML = '';
 });
 
 backdrop.addEventListener('click', close);
