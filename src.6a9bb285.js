@@ -31,4 +31,4 @@ module.exports=[{id:28,name:"Action"},{id:12,name:"Adventure"},{id:16,name:"Anim
 },{"../refs/getRefs":"lOVX","../../index":"Focm"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/service/apiMovies"),require("./js/service/search"),require("./js/header/header.js"),require("./js/load_spinner/load-spinner.js"),require("./js/modal/modal-film.js");var e=a(require("./js/library/library")),r=a(require("./js/refs/getRefs")),s=a(require("./js/modal-templayte/modal-open")),i=a(require("./js/infinity-scroll/infinity-scroll"));function a(e){return e&&e.__esModule?e:{default:e}}
 },{"./sass/main.scss":"clu1","./js/service/apiMovies":"nOTu","./js/service/search":"QwAi","./js/header/header.js":"N0LX","./js/load_spinner/load-spinner.js":"ZALe","./js/modal/modal-film.js":"rlFT","./js/library/library":"nO1y","./js/refs/getRefs":"lOVX","./js/modal-templayte/modal-open":"Quh6","./js/infinity-scroll/infinity-scroll":"fixH"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-13/src.fa045b78.js.map
+//# sourceMappingURL=/project-13/src.6a9bb285.js.map
