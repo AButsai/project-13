@@ -23,12 +23,7 @@ backdrop.addEventListener('click', close);
 
 window.addEventListener('keydown', handleEsc);
 
-function countGenres(data) {
-  const filmGenres = data.map(({ name }) => name).join(', ');
-  return filmGenres;
-}
-
-function makeModal({
+export function makeModal({
   poster_path,
   title,
   vote_average,
@@ -66,7 +61,7 @@ function makeModal({
       </li>
       <li class="film-card-list_item">
         <p class="film-card-list_title">Genre</p>
-        <p class="film-card-list_text">${countGenres}</p>
+        <p class="film-card-list_text">${genres}</p>
       </li>
     </ul>
 
