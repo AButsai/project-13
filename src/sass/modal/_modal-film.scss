@@ -1,5 +1,5 @@
 
-.film-card {
+.modal-film {
   width: 280px;
   height: auto;
   display: block;
@@ -22,32 +22,13 @@
     max-width: 882px;
   }
 
-  &__button-close {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 8px;
-    right: 10px;
-    display: inline-flex;
-    align-self: flex-start;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    background-color: transparent;
-    box-sizing: border-box;
-    cursor: pointer;
-    transition: all .3s cubic-bezier(.38, .53, .8, .71);
-
-    &__button-close:hover,
-    :focus {
-      width: 32px;
-      height: 32px;
-    }
-  }
+&_image{
+  object-fit: cover;
+}
 
 
   &_imageContainer {
+
     margin-bottom: 30px;
     width: 240px;
     border-radius: 5px;
@@ -152,6 +133,11 @@
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     margin-bottom: 40px;
   }
+  @media screen and (min-width: 1024px) {
+    & > li:not(:last-Child){
+      margin-right: 15px;
+    }
+  }
 
   &_buttonStyle {
     width: 112px;
@@ -173,22 +159,26 @@
 
     @media screen and (min-width: 1024px) {
       width: 136px;
+
     }
 
-    &_buttonStyle:hover,
-    :focus {
-      background-color: $bg-active;
-      border: 1px solid transparent;
-      color: $color-white;
-    }
+   
   }
 
-  &_buttonStyle {
-    justify-content: space-between;
 
-    @media screen and (min-width: 1024px) {
-      justify-content: space-evenly;
-    }
+}
+.button-list{
+  justify-content: space-between;
+  
+  @media screen and (min-width: 1024px) {
+  justify-content: left;
   }
+}
 
+
+.button-list_buttonStyle:hover,
+:focus {
+  background-color: $bg-active;
+  border: 1px solid transparent;
+  color: $color-white;
 }

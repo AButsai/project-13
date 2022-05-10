@@ -3,7 +3,12 @@ import './js/service/apiMovies';
 import './js/service/search';
 import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
+
+import './js/modal/modal-film.js';
+// import renderFilmCard from './js/card-templayte/card-templayte';
+
 import createFilmsList from './js/library/library';
+
 import getRefs from './js/refs/getRefs';
 import onCardFilmClick from './js/modal-templayte/modal-open';
 import infinityScroll from './js/infinity-scroll/infinity-scroll';
