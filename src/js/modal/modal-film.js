@@ -33,40 +33,40 @@ export function makeModal({
   genres,
   overview,
 }) {
-  return `<div class="film-card">
+  return `<div class="modal-film-card">
   
-  <div class="film-card_imageContainer">
+  <div class="modal-film-card_imageContainer">
     <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="film-card_image" />
   </div>
 
-  <div class="film-card_descriptionContainer">
-    <h2 class="film-card_title">${title}</h2>
+  <div class="modal-film-card_descriptionContainer">
+    <h2 class="modal-film-card_title">${title}</h2>
 
-    <ul class="film-card-list">
-      <li class="film-card-list_item">
-        <p class="film-card-list_title">Vote / Votes</p>
+    <ul class="modal-film-card-list">
+      <li class="modal-film-card-list_item">
+        <p class="modal-film-card-list_title">Vote / Votes</p>
         <p>
-          <span class="film-card-list_text film-card-list_text-colorOrange">${vote_average}</span>
-          <span class="film-card-list_text">/</span>
-          <span class="film-card-list_text film-card-list_text-colorGrey">${vote_count}</span>
+          <span class="modal-film-card-list_text modal-film-card-list_text-colorOrange">${vote_average}</span>
+          <span class="modal-film-card-list_text">/</span>
+          <span class="modal-film-card-list_text modal-film-card-list_text-colorGrey">${vote_count}</span>
         </p>
       </li>
-      <li class="film-card-list_item">
-        <p class="film-card-list_title">Popularity</p>
-        <p class="film-card-list_text">${popularity}</p>
+      <li class="modal-film-card-list_item">
+        <p class="modal-film-card-list_title">Popularity</p>
+        <p class="modal-film-card-list_text">${popularity}</p>
       </li>
-      <li class="film-card-list_item">
-        <p class="film-card-list_title">Original Title</p>
-        <p class="film-card-list_text">${original_title}</p>
+      <li class="modal-film-card-list_item">
+        <p class="modal-film-card-list_title">Original Title</p>
+        <p class="modal-film-card-list_text">${original_title}</p>
       </li>
-      <li class="film-card-list_item">
-        <p class="film-card-list_title">Genre</p>
-        <p class="film-card-list_text">${genres}</p>
+      <li class="modal-film-card-list_item">
+        <p class="modal-film-card-list_title">Genre</p>
+        <p class="modal-film-card-list_text">${genres}</p>
       </li>
     </ul>
 
-    <h2 class="film-card_about">About</h2>
-    <p class="film-card_text">
+    <h2 class="modal-film-card_about">About</h2>
+    <p class="modal-film-card_text">
     ${overview}
     </p>
 
