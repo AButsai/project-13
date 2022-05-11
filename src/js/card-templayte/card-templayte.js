@@ -1,11 +1,21 @@
 import genresJSON from '../../json/./genres/genres.json';
 import createFilmsList from '../library/library';
-import getRefs from '../refs/getRefs';
+
 
 // принимает  responce.results
 export const changeGenresIdForName = function(films) {
   let filmsInfo = [];
-  films.map(film => {
+
+  films.filter(film =>{
+    const {overview, poster_path, vote_average, title} = film;
+    if((poster_path !== null && overview !== '') || (poster_path !== '' && overview !== '')){
+      if((poster_path !== null && vote_average !== 0) || (poster_path !== '' && vote_average !== 0)){
+        if(title !== ''){
+          return film;
+        }
+      }
+    }
+  }).map(film => {
     const filmWithGenres = {
       genres: [],
       id: film.id,
@@ -20,7 +30,8 @@ export const changeGenresIdForName = function(films) {
     };
 
     genresJSON.map(({ id, name }) => {
-      if (film.genre_ids.includes(id)) {
+      
+      if(film.genre_ids.includes(id)) {
         filmWithGenres.genres.push(name);
       }
     });
@@ -51,3 +62,4 @@ export const renderFilmCard = function(film) {
     </a>
         </li>`;
 };
+

@@ -6,6 +6,7 @@ import Notiflix from 'notiflix';
 import smoothScroll from '../smooth-scroll/smooth-scroll';
 
 const API_KEY = process.env.API_KEY;
+// const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
 
 
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -55,7 +56,7 @@ function renderSearch() {
   const searchMovies = moviesService
     .searchMovies()
     .then(response => {
-      createFilmsList(response);
+      changeGenresIdForName(response);
       moviesService.incrementPage();
       infinityScroll(renderSearch);
       if (moviesService.page > 2) {

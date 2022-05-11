@@ -48,16 +48,16 @@ export default class MoviesService {
         .then(({ results }) => {
           return results;
         })
-        .then(movies =>
-          movies.map(movie => {
-            const genres = movie.genre_ids.map(id => this.genres.find(genre => genre.id === id));
-            return {
-              ...movie,
-              genre_ids: undefined,
-              genres,
-            };
-          }),
-        )
+        // .then(movies =>
+        //   movies.map(movie => {
+        //     const genres = movie.genre_ids.map(id => this.genres.find(genre => genre.id === id));
+        //     return {
+        //       ...movie,
+        //       genre_ids: undefined,
+        //       genres,
+        //     };
+        //   }),
+        // )
         .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`))
     );
   }
