@@ -45,11 +45,11 @@ export default class MoviesService {
       .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
   }
 
-  getGenresList() {
+  async getGenresList() {
     const url = `${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`;
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => data.genres);
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.genres;
   }
 
   cacheGenresList() {

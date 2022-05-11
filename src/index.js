@@ -3,9 +3,9 @@ import './js/service/apiMovies';
 import './js/service/search';
 import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
-import createFilmsList from './js/library/library'
-import getRefs from './js/refs/getRefs';
-import onCardFilmClick from './js/modal-templayte/modal-open';
+//  import createFilmsList from './js/library/library';
+// import getRefs from './js/refs/getRefs';
+// import onCardFilmClick from './js/modal-templayte/modal-open';
 // Для теста:
 
 // 1)запрос на популярные фильмы
