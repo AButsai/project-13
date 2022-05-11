@@ -10,7 +10,7 @@ import './js/modal/modal-film.js';
 import createFilmsList from './js/library/library';
 
 import getRefs from './js/refs/getRefs';
-import onCardFilmClick from './js/modal-templayte/modal-open';
+// import onCardFilmClick from './js/modal-templayte/modal-open';
 import infinityScroll from './js/infinity-scroll/infinity-scroll';
 // Для теста:
 
