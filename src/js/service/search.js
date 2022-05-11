@@ -5,8 +5,8 @@ import { changeGenresIdForName } from '../card-templayte/card-templayte';
 import Notiflix from 'notiflix';
 import smoothScroll from '../smooth-scroll/smooth-scroll';
 
-const API_KEY = process.env.API_KEY;
-// const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
+// const API_KEY = process.env.API_KEY;
+const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
 
 
 const BASE_URL = 'https://api.themoviedb.org/3';
