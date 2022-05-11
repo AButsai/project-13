@@ -10,11 +10,16 @@ function getRefs() {
     header: document.querySelector('.header'),
     buttons: document.querySelector('.library'),
     // Main
+    main: document.querySelector('.main'),
     cardslist: document.querySelector('.films-grid'),
     //Spinner
-    spinner: document.querySelector('.load-spinner'),
+
+    closeModalBtn: document.querySelector('.modal_button-close'),
+
+    // spinner: document.querySelector('.load-spinner'),
+
     //Modal
-    closeModalBtn: document.querySelector('.closeModal'),
+
     backdrop: document.querySelector('.backdrop'),
     modal: document.querySelector('.modal'),
     //Api Service

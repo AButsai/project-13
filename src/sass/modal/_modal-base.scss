@@ -14,5 +14,33 @@
 .modal {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
+  position: relative;
+  
+&_button-close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  right: 30px;
+  display: inline-flex;
+  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.38, .53, .8, .71);
+
+  &__button-close:hover,
+  :focus {
+    width: 32px;
+    height: 32px;
+  }
 }
+
+}
+
+ 
 

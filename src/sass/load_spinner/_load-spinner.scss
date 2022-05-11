@@ -1,4 +1,7 @@
-
+.spinner-wrapper{
+    position: relative;
+    margin-bottom: 75px;
+}
 //Основные стили спиннера
 .load-spinner {
   width: 48px;
@@ -13,7 +16,7 @@
   position: absolute;
   left: 50%;
   margin-left: -24px;
-  top: 95%;
+  top: 80%;
 
   -webkit-transition: ease-in-out 0.1s;
   -moz-transition: ease-in-out 0.1s;
@@ -62,3 +65,4 @@
         transform: rotate(360deg);
     }
 }
+

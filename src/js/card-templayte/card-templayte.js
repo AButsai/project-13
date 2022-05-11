@@ -1,11 +1,21 @@
 import genresJSON from '../../json/./genres/genres.json';
 import createFilmsList from '../library/library';
-import getRefs from '../refs/getRefs';
+
 
 // принимает  responce.results
 export const changeGenresIdForName = function(films) {
   let filmsInfo = [];
-  films.map(film => {
+
+  films.filter(film =>{
+    const {overview, poster_path, vote_average, title} = film;
+    if((poster_path !== null && overview !== '') || (poster_path !== '' && overview !== '')){
+      if((poster_path !== null && vote_average !== 0) || (poster_path !== '' && vote_average !== 0)){
+        if(title !== ''){
+          return film;
+        }
+      }
+    }
+  }).map(film => {
     const filmWithGenres = {
       genres: [],
       id: film.id,
@@ -20,7 +30,8 @@ export const changeGenresIdForName = function(films) {
     };
 
     genresJSON.map(({ id, name }) => {
-      if (film.genre_ids.includes(id)) {
+      
+      if(film.genre_ids.includes(id)) {
         filmWithGenres.genres.push(name);
       }
     });
@@ -39,24 +50,16 @@ function correctGenres(filmsInfo) {
   });
 }
 
-// кусок кода Елены
-// --------------------------------------
-// export const createFilmsList = function(films) {
-//   const markup = films.map(film => renderFilmCard(film)).join('');
-//   getRefs().cardslist.insertAdjacentHTML('beforeend', markup);
-// };
-// --------------------------------------
-
 export const renderFilmCard = function(film) {
   const urlImg = 'https://image.tmdb.org/t/p/w500';
 
   return `<li class="film-card">
     <a href="">
-        <img src="${urlImg}${film.poster_path}" alt="${film.title}" data-index = ${film.id}>
-        <h2>${film.title}</h2>
-        <p>${film.genres}
+        <img class="card-img" src="${urlImg}${film.poster_path}" alt="${film.title}" data-index = ${film.id}>
+        <h2 class="card-title">${film.title.toUpperCase()}</h2>
+        <p class="card-genres">${film.genres}
         | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>             
-        <p>${film.vote_average}</p>
     </a>
         </li>`;
 };
+
