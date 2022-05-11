@@ -11,13 +11,11 @@ export default class MoviesService {
   /**
    * Returns trending movies
    */
-  getPopularMovies() {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-USpage=${this.page}`;
-    return fetch(url, { mode: 'cors' })
-      .then(response => response.json())
-      .then(({ results }) => {
-        return results;
-      });
+  async getPopularMovies() {
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=${this.page}`;
+    const response = await fetch(url, { mode: 'cors' });
+    const { results } = await response.json();
+    return results;
   }
 
   searchMovies() {
