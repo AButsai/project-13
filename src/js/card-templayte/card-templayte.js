@@ -56,7 +56,7 @@ export const renderFilmCard = function(film) {
   let img = '';
 
   if(film.poster_path === null){
-    img = "./images/plug.jpg";
+    img = "https://github.com/AButsai/project-13/blob/dev/src/images/plug.jpg?raw=true";
   }else{
     img = urlImg + film.poster_path; 
   }
