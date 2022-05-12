@@ -21,7 +21,7 @@ function getRefs() {
     //Modal
 
     backdrop: document.querySelector('.backdrop'),
-    modal: document.querySelector('.modal'),
+    modal: document.querySelector('.paint-place'),
     //Api Service
     searchForm: document.querySelector('.form'),
     galleryList: document.querySelector('.gallery'),
