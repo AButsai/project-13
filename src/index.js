@@ -3,7 +3,6 @@ import './js/service/apiMovies';
 import './js/service/search';
 import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
-
 import './js/modal/modal-film.js';
 // import renderFilmCard from './js/card-templayte/card-templayte';
 

@@ -1,10 +1,13 @@
 import Notiflix from 'notiflix';
+export const API_KEY = process.env.API_KEY;
+// const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
 
+export const BASE_URL = 'https://api.themoviedb.org/3';
 export default class MoviesService {
-  constructor({ apiKey, baseUrl }) {
+  constructor() {
     this.page = 1;
-    this.apiKey = apiKey;
-    this.baseUrl = baseUrl;
+    this.apiKey = API_KEY;
+    this.baseUrl = BASE_URL;
     this.genres = [];
     this.searchQuery = '';
   }
@@ -20,41 +23,38 @@ export default class MoviesService {
     return results;
   }
 
-  searchMovies() {
+  async getVideoById(id) {
+    const url = `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}&language=en-US`;
+    const response = await fetch(url, { mode: 'cors' });
+    const data = await response.json();
+    console.log(data.results);
+    return data.results[0].id;
+  }
+
+  async searchMovies() {
     const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
 
-    return (
-      this.cacheGenresList()
-        .then(_ => fetch(url, { mode: 'cors' }))
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          return response.json();
-        })
-        //Прерываем выполнение кода, если страница больше, чем та что в респонсе
-        .then(responce => {
-          if (this.page > responce.total_pages) {
-            return;
-          }
-          console.log(responce.total_pages);
-          return responce;
-        })
-        .then(({ results }) => {
-          return results;
-        })
-        // .then(movies =>
-        //   movies.map(movie => {
-        //     const genres = movie.genre_ids.map(id => this.genres.find(genre => genre.id === id));
-        //     return {
-        //       ...movie,
-        //       genre_ids: undefined,
-        //       genres,
-        //     };
-        //   }),
-        // )
-        .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`))
-    );
+    return this.cacheGenresList()
+      .then(_ => fetch(url, { mode: 'cors' }))
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+
+      .then(responce => {
+        if (this.page > responce.total_pages) {
+          return;
+        }
+        console.log(responce.total_pages);
+        return responce;
+      })
+      .then(({ results }) => {
+        return results;
+      })
+
+      .catch(error => Notiflix.Notify.failure(`Oops, something wrong.Try again`));
   }
 
   async getGenresList() {
