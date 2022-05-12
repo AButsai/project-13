@@ -41,7 +41,7 @@ function makeModal({
   return `<div class="modal-film">
   
   <div class="modal-film_imageContainer">
-    <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="film-card_image" />
+    <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="modal-film_image" />
   </div>
 
   <div class="modal-film_descriptionContainer">
