@@ -21,30 +21,15 @@
     </div>
     <form class="form">
       <label class="form__label">
-        <input type="text" name="name" class="form__input" placeholder="Поиск фильмов" />
+        <input
+          type="text"
+          name="name"
+          class="form__input lang_placeholder"
+          placeholder="Search Film"
+        />
       </label>
       <button class="form__btn" type="submit"></button>
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- <a href="#" class="themetoggle">
       Toggle themetoggle
@@ -61,8 +46,13 @@
     </div> -->
 
     <div class="library hidden">
-      <button class="library__btn active" type="button" data-watched>Watched</button>
-      <button class="library__btn library__btn--margin" type="button" data-queue>queue</button>
+      <button class="library__btn active lang_watched" type="button" data-watched>Watched</button>
+      <button class="library__btn library__btn--margin lang_queue" type="button" data-queue>
+        queue
+      </button>
     </div>
+  </div>
+  <div class="swichers">
+    <div class="select"></div>
   </div>
 </header>
