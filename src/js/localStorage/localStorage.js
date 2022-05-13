@@ -52,8 +52,7 @@ export default function makeLocalStorage(filmData) {
 function isInLocalStorageWatched(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
-  // if(localStorageDataWatched === null && localStorageDataWatched.length === 0)
-  if (localStorageDataWatched?.length) {
+  if (localStorageDataWatched !== null && localStorageDataWatched.length !== 0) {
     return localStorageDataWatched.some(value => value.id === data.id);
   }
 
@@ -63,8 +62,7 @@ function isInLocalStorageWatched(data) {
 function isInLocalStorageQueue(data) {
   const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
 
-  // if(localStorageDataQueue === null && localStorageDataQueue.length === 0)
-  if (localStorageDataQueue?.length) {
+  if (localStorageDataQueue !== null && localStorageDataQueue.length !== 0) {
     return localStorageDataQueue.some(value => value.id === data.id);
   }
 
