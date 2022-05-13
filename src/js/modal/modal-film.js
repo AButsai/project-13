@@ -39,6 +39,13 @@ function makeModal({
 }) {
   window.addEventListener('keydown', handleEsc);
 
+  let img = '';
+  if (film.poster_path === null) {
+    img = 'https://github.com/AButsai/project-13/blob/dev/src/images/plug.jpg?raw=true';
+  } else {
+    img = urlImg + film.poster_path;
+  }
+
   return `<div class="modal-film">
   
   <div class="modal-film_imageContainer">

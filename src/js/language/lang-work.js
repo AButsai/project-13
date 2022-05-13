@@ -1,5 +1,3 @@
-import { renderPopular } from '../service/search.js';
-
 const langArr = {
   home: {
     en: 'home',
@@ -26,16 +24,15 @@ const langArr = {
 export function changeStoragelanguage(lang) {
   localStorage.setItem('language', JSON.stringify(lang));
   changeLanguage();
-  // renderPopular();
-  // location.reload();
+  location.reload();
 }
 
 function changeLanguage() {
   const language = JSON.parse(localStorage.getItem('language'));
-
-  console.log(language);
   for (let key in langArr) {
-    // document.querySelector('.lang_placeholder').placeholder = langArr[key][language];
+    document.querySelector('.lang_placeholder').placeholder = langArr[key][language];
     document.querySelector('.lang_' + key).innerHTML = langArr[key][language];
   }
 }
+
+changeLanguage();
