@@ -7,7 +7,6 @@ import smoothScroll from '../smooth-scroll/smooth-scroll';
 
 const API_KEY = process.env.API_KEY;
 
-
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 const moviesService = new MoviesService({ apiKey: API_KEY, baseUrl: BASE_URL });

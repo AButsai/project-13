@@ -5,6 +5,8 @@ import './js/header/header.js';
 import './js/load_spinner/load-spinner.js';
 
 import './js/modal/modal-film.js';
+
+import './js/language/setings_language.js';
 // import renderFilmCard from './js/card-templayte/card-templayte';
 
 import createFilmsList from './js/library/library';
