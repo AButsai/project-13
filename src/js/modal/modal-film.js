@@ -1,4 +1,5 @@
 import getRefs from '../refs/getRefs.js';
+import makeLocalStorage from '../localStorage/localStorage';
 
 const { closeModalBtn, backdrop, modal } = getRefs();
 
@@ -95,4 +96,6 @@ function makeModal({
 export function openModal(data) {
   modal.insertAdjacentHTML('beforeend', makeModal(data));
   backdrop.classList.remove('visually-hidden');
+
+  makeLocalStorage(data);
 }
