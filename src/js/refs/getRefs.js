@@ -19,9 +19,11 @@ function getRefs() {
     // spinner: document.querySelector('.load-spinner'),
 
     //Modal
-
     backdrop: document.querySelector('.backdrop'),
-    modal: document.querySelector('.modal'),
+    modal: document.querySelector('.paint-place'),
+    btnWatched: document.querySelector('.film-card-button_watched'),
+    btnQueue: document.querySelector('.film-card-button_queue'),
+
     //Api Service
     searchForm: document.querySelector('.form'),
     galleryList: document.querySelector('.gallery'),
