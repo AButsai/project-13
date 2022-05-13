@@ -24,7 +24,7 @@ ${languageItem.name}</option>
 const createLanguageSelector = languages => {
   const options = languages.map(createOption).join('');
 
-  return ` <select name='lanuagesSelector' class='change-lang switchStyle'>
+  return ` <select name='lanuagesSelector' class='change-lang switchStyleLang'>
   ${options}
   </select>
   `;
