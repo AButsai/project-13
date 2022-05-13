@@ -36,9 +36,7 @@ export default class MoviesService {
   }
 
   async searchMovies() {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${
-      this.page
-    }&query=${this.searchQuery}`;
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
 
     return this.cacheGenresList()
       .then(_ => fetch(url, { mode: 'cors' }))
