@@ -12,24 +12,39 @@
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__item nav__item--margin">
-            <button class="nav__link current" type="button" data-home data-curr>Home</button>
+            
+            <button class="nav__link current lang_home" type="button" data-home data-curr>
+              Home
+            </button>
+            <!-- <a class="nav__link current" href="#" data-home data-curr>Home</a> -->
+
           </li>
           <li class="nav__item">
-            <button class="nav__link" type="button" data-library>my library</button>
+            <button class="nav__link lang_library" type="button" data-library>my library</button>
           </li>
         </ul>
       </nav>
     </div>
     <form class="form">
       <label class="form__label">
-        <input type="text" name="name" class="form__input" placeholder="Поиск фильмов" />
+        <input
+          type="text"
+          name="name"
+          class="form__input lang_placeholder"
+          placeholder="Search Film"
+        />
       </label>
       <button class="form__btn" type="submit"></button>
     </form>
 
     <div class="library hidden">
-      <button class="library__btn active" type="button" data-watched>Watched</button>
-      <button class="library__btn library__btn--margin" type="button" data-queue>queue</button>
+      <button class="library__btn active lang_watched" type="button" data-watched>Watched</button>
+      <button class="library__btn library__btn--margin lang_queue" type="button" data-queue>
+        queue
+      </button>
+    </div>
+    <div class="swichers">
+      <div class="select"></div>
     </div>
 
   <div class= "swichers">

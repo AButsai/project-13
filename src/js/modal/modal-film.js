@@ -1,4 +1,5 @@
 import getRefs from '../refs/getRefs.js';
+import makeLocalStorage from '../localStorage/localStorage';
 
 const { closeModalBtn, backdrop, modal } = getRefs();
 
@@ -38,10 +39,19 @@ function makeModal({
 }) {
   window.addEventListener('keydown', handleEsc);
 
+  const urlImg = 'https://image.tmdb.org/t/p/w500';
+  let img = '';
+
+  if (poster_path === null) {
+    img = 'https://github.com/AButsai/project-13/blob/dev/src/images/plug.jpg?raw=true';
+  } else {
+    img = urlImg + poster_path;
+  }
+
   return `<div class="modal-film">
   
   <div class="modal-film_imageContainer">
-    <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="film picture" class="modal-film_image" />
+    <img src="${img}" alt="${title}" class="modal-film_image" />
   </div>
 
   <div class="modal-film_descriptionContainer">
@@ -77,12 +87,12 @@ function makeModal({
 
     <ul class="button-list">
       <li>
-        <button type="button" class="button-list_buttonStyle film-card-button_watched">
+        <button type="button" class="button-list_buttonStyle film-card-button_watched lang_addwatched">
           add to Watched
         </button>
       </li>
       <li>
-        <button type="button" class="button-list_buttonStyle film-card-button_queue">
+        <button type="button" class="button-list_buttonStyle film-card-button_queue lang_addqueue">
           add to queue
         </button>
       </li>
@@ -95,4 +105,24 @@ function makeModal({
 export function openModal(data) {
   modal.insertAdjacentHTML('beforeend', makeModal(data));
   backdrop.classList.remove('visually-hidden');
+
+  makeLocalStorage(data);
+}
+
+const langArr = {
+  addwatched: {
+    en: 'add to Watched',
+    uk: 'додати до переглянутих',
+  },
+  addqueue: {
+    en: ' add to queue',
+    uk: 'додати в чергу',
+  },
+};
+
+export function changeLanguageOnModal() {
+  const language = JSON.parse(localStorage.getItem('language'));
+  for (let key in langArr) {
+    document.querySelector('.lang_' + key).innerHTML = langArr[key][language];
+  }
 }
