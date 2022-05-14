@@ -32,13 +32,11 @@ export default class MoviesService {
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
     console.log(data.results);
-    return data.results[0].id;
+    return data.results[1].key;
   }
 
   async searchMovies() {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${
-      this.page
-    }&query=${this.searchQuery}`;
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&page=${this.page}&query=${this.searchQuery}`;
 
     return this.cacheGenresList()
       .then(_ => fetch(url, { mode: 'cors' }))
