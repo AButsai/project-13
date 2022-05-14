@@ -230,6 +230,27 @@ body.dark {
 	background: $bodyDark;
 }
 
+.swichers{
+
+  position: absolute;
+ top:5%;
+ right: 10%;
+  @media (min-width: 768px) {}
+
+}
+.switchStyleLang{
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+border-radius: 5px;
+height: 20px;
+font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: $color-white;
+}
+
 .checkbox {
 	opacity: 0;
 	position: absolute;
