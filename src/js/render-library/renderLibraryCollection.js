@@ -1,8 +1,8 @@
 import renderLibraryItems from './renderLibraryItems';
-import { loadFilms } from '../storage/local-storage';
+import { loadFilms } from '../localStorage/localStorage';
 import getRefs from '../refs/getRefs';
 import { addedClassButton, removedClassButton } from './toggleClassButton';
-// import getMovieById from '../service/apiLibrary';
+import galleryTpl from '../../partials/library-film/library-film.hbs';
 
 export const defaultPageLibrary = () => {
   const { libraryWatched, libraryQueue } = getRefs();
@@ -17,18 +17,14 @@ function watched(btnWatchedLib, btnQueueLib) {
 
   function renderWatched() {
     getRefs().cardslist.innerHTML = '';
-    const arrId = loadFilms('watched');
+    const arr = loadFilms('watched');
 
     addedClassButton(btnWatchedLib);
     removedClassButton(btnQueueLib);
-    if (!arrId || arrId.length === 0) {
+    if (!arr || arr.length === 0) {
       noFilm();
     } else {
-      for (let id of arrId) {
-        getMovieById(id).then(data => {
-          renderLibraryItems(data);
-        });
-      }
+      renderLibraryItems(arr);
     }
   }
 }
@@ -38,43 +34,34 @@ function Queue(btnWatchedLib, btnQueueLib) {
 
   function renderQueue() {
     getRefs().cardslist.innerHTML = '';
-    const arrId = loadFilms('queue');
+    const arr = loadFilms('queue');
 
     addedClassButton(btnQueueLib);
     removedClassButton(btnWatchedLib);
-    if (!arrId || arrId.length === 0) {
+    if (!arr || arr.length === 0) {
       noFilm();
     } else {
-      for (let id of arrId) {
-        getMovieById(id).then(data => {
-          renderLibraryItems(data);
-        });
-      }
+      renderLibraryItems(arr);
     }
   }
 }
 
 function renderAllList() {
   getRefs().cardslist.innerHTML = '';
-  let arrWatchId = [];
-  let arrQueueId = [];
+  let arrWatch = [];
+  let arrQueue = [];
   if (loadFilms('watched')) {
-    arrWatchId = loadFilms('watched');
+    arrWatch = loadFilms('watched');
   }
   if (loadFilms('queue')) {
-    arrQueueId = loadFilms('queue');
+    arrQueue = loadFilms('queue');
   }
-  const allId = [...arrWatchId, ...arrQueueId];
+  const all = [...arrWatch, ...arrQueue];
 
-  if (arrWatchId.length === 0 && arrQueueId.length === 0) {
+  if (arrWatch.length === 0 && arrQueue.length === 0) {
     noFilm();
   } else {
-    for (let id of allId) {
-      getMovieById(id).then(data => {
-        console.log(data);
-        renderLibraryItems(data);
-      });
-    }
+    renderLibraryItems(all);
   }
 }
 

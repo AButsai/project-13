@@ -1,8 +1,12 @@
 import getRefs from '../refs/getRefs';
-import { renderFilmCard } from '../card-templayte/card-templayte';
+import galleryTpl from '../../partials/library-film/library-film.hbs';
+import createYear from '../helpers/createYear';
 
 export default function renderLibraryItems(data) {
-  const markup = renderFilmCard(data);
+  const newData = data.map(item => ({ ...item, year: createYear(item) }));
 
-  getRefs().cardslist.insertAdjacentHTML('beforeend', markup);
+  const { cardslist } = getRefs();
+  const markup = galleryTpl(newData);
+
+  cardslist.insertAdjacentHTML('beforeend', markup);
 }

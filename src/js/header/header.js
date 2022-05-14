@@ -1,6 +1,15 @@
 import getRefs from '../refs/getRefs.js';
 
-const { homeLink, libraryLink, libraryWatched, libraryQueue, form, header, buttons, homeLinkCurrent, } = getRefs();
+const {
+  homeLink,
+  libraryLink,
+  libraryWatched,
+  libraryQueue,
+  form,
+  header,
+  buttons,
+  homeLinkCurrent,
+} = getRefs();
 
 const handleClickHome = () => {
   form.classList.remove('hidden');
@@ -20,67 +29,16 @@ const handleClickLibrary = () => {
   homeLinkCurrent.classList.remove('current');
 };
 
-const libraryWatchedColor = () => {
-  libraryWatched.classList.add('active');
-  libraryQueue.classList.remove('active');
-};
-
-const libraryQueueColor = () => {
-  libraryWatched.classList.remove('active');
-  libraryQueue.classList.add('active');
-};
-
 homeLink.forEach(link => {
   link.addEventListener('click', handleClickHome);
 });
 libraryLink.addEventListener('click', handleClickLibrary);
 
-libraryWatched.addEventListener('click', libraryWatchedColor);
-libraryQueue.addEventListener('click', libraryQueueColor);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // document.querySelector('.themetoggle').addEventListener('click', (event)=> {
 //   event.preventDefault();
 //   if (localStorage.getItem('theme') === 'dark') {
 //     localStorage.removeItem('theme');
-//   } 
+//   }
 //   else {
 //     localStorage.setItem('theme', 'dark');
 //   }
@@ -101,7 +59,6 @@ libraryQueue.addEventListener('click', libraryQueueColor);
 // }
 
 // addDarkClassToHTML();
-
 
 // const chk = document.getElementById('chk');
 

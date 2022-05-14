@@ -1,5 +1,5 @@
 import getRefs from '../refs/getRefs.js';
-import makeLocalStorage from '../localStorage/localStorage';
+import { makeLocalStorage } from '../localStorage/localStorage';
 
 const { closeModalBtn, backdrop, modal } = getRefs();
 
