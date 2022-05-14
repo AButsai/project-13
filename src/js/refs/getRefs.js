@@ -27,6 +27,12 @@ function getRefs() {
     //Api Service
     searchForm: document.querySelector('.form'),
     galleryList: document.querySelector('.gallery'),
+
+    // dark and light theme
+    chk: document.getElementById('chk'),
+    labelMoonSun: document.querySelector('.label'),
+    ballMoonSun: document.querySelector('.ball'),
+
   };
 }
 
