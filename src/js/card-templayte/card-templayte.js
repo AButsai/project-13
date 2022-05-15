@@ -64,11 +64,12 @@ export const renderFilmCard = function(film) {
   }
 
   return `<li class="film-card">
-    <a href="">
+    <a href="#">
         <img class="card-img" src="${img}" alt="${film.title}" data-index = ${film.id}>
         <h2 class="card-title">${film.title.toUpperCase()}</h2>
         <p class="card-genres">${film.genres}
-        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>             
-    </a>
+        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p> 
+        <a href="#" class="card-trailer"></a>                
+    </a>  
         </li>`;
 };
