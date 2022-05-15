@@ -8,6 +8,7 @@ import './js/modal/modal-film.js';
 // import './js/language/lang-work';
 import './js/language/setings_language';
 import './js/localStorage/localStorage';
+import './js/helpers/scroll-up';
 // import renderFilmCard from './js/card-templayte/card-templayte';
 import './js/developers-modal/dev-modal'
 import createFilmsList from './js/library/library';
@@ -15,6 +16,7 @@ import createFilmsList from './js/library/library';
 import getRefs from './js/refs/getRefs';
 // import onCardFilmClick from './js/modal-templayte/modal-open';
 import infinityScroll from './js/infinity-scroll/infinity-scroll';
+
 
 // Для теста:
 

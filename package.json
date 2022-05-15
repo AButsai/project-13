@@ -28,8 +28,10 @@
   "dependencies": {
     "axios": "^0.25.0",
     "basiclightbox": "^5.0.4",
+    "handlebars": "^4.7.7",
     "lodash.debounce": "^4.0.8",
     "notiflix": "^3.2.5",
+    "scroll-js": "^3.5.1",
     "simplelightbox": "^2.10.3"
   }
 }
