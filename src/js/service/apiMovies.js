@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
-export const API_KEY = process.env.API_KEY;
-// const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
+// export const API_KEY = process.env.API_KEY;
+const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
 
 export const BASE_URL = 'https://api.themoviedb.org/3';
 export default class MoviesService {

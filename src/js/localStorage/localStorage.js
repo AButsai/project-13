@@ -7,7 +7,7 @@ const QUEUE_KEY = 'queue';
 let watchedFilmsInfo = [];
 let queueFilmsInfo = [];
 
-export default function makeLocalStorage(filmData) {
+export function makeLocalStorage(filmData) {
   const btnWatchedEl = getRefs().btnWatched;
   const btnQueueEl = getRefs().btnQueue;
 
@@ -47,6 +47,10 @@ export default function makeLocalStorage(filmData) {
       Notiflix.Notify.success('Successfully added!');
     }
   }
+}
+
+export function loadFilms(key) {
+  return JSON.parse(localStorage.getItem(key));
 }
 
 function isInLocalStorageWatched(data) {

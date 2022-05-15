@@ -1,6 +1,10 @@
 .noFilm-list {
   grid-column: 2;
   text-align: center;
+  @media (max-width: 1024px) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
 .noFilm-list__title {

@@ -1,6 +1,18 @@
 import getRefs from '../refs/getRefs.js';
 
-const { homeLink, libraryLink, libraryWatched, libraryQueue, form, header, buttons, homeLinkCurrent, chk, labelMoonSun, ballMoonSun, } = getRefs();
+const {
+  homeLink,
+  libraryLink,
+  libraryWatched,
+  libraryQueue,
+  form,
+  header,
+  buttons,
+  homeLinkCurrent,
+  chk,
+  labelMoonSun,
+  ballMoonSun,
+} = getRefs();
 
 const handleClickHome = () => {
   form.classList.remove('hidden');
@@ -20,25 +32,10 @@ const handleClickLibrary = () => {
   homeLinkCurrent.classList.remove('current');
 };
 
-const libraryWatchedColor = () => {
-  libraryWatched.classList.add('active');
-  libraryQueue.classList.remove('active');
-};
-
-const libraryQueueColor = () => {
-  libraryWatched.classList.remove('active');
-  libraryQueue.classList.add('active');
-};
-
 homeLink.forEach(link => {
   link.addEventListener('click', handleClickHome);
 });
 libraryLink.addEventListener('click', handleClickLibrary);
-
-libraryWatched.addEventListener('click', libraryWatchedColor);
-libraryQueue.addEventListener('click', libraryQueueColor);
-
-
 
 const themeDark = () => {
   document.body.classList.add('dark');
@@ -80,3 +77,4 @@ function changeStatus () {
 }
 
 chk.addEventListener('change', changeStatus);
+
