@@ -18,12 +18,17 @@ export default function makeLocalStorage(filmData) {
     evt.preventDefault();
 
     if (isInLocalStorageWatched(filmData)) {
-      Notiflix.Notify.failure('This film is already in your library!');
+      removeFromLocalStorageWatched(filmData);
+
+      evt.target.textContent = "Add to watched";
+      btnQueueEl.disabled = false;
+
+      Notiflix.Notify.failure('Successfully removed!');
     } else {
       watchedFilmsInfo.push(filmData);
 
-      evt.target.style.backgroundColor = '#ff6b01';
-      evt.target.style.color = '#ffffff';
+      evt.target.textContent = "Remove from watched";
+      btnQueueEl.disabled = true;
 
       localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedFilmsInfo));
 
@@ -35,12 +40,17 @@ export default function makeLocalStorage(filmData) {
     evt.preventDefault();
 
     if (isInLocalStorageQueue(filmData)) {
-      Notiflix.Notify.failure('This film is already in your library!');
+      removeFromLocalStorageQueue(filmData);
+      evt.target.textContent = "Add to queue";
+
+      btnWatchedEl.disabled = false;
+
+      Notiflix.Notify.failure('Successfully removed!')
     } else {
       queueFilmsInfo.push(filmData);
 
-      evt.target.style.backgroundColor = '#ff6b01';
-      evt.target.style.color = '#ffffff';
+      evt.target.textContent = "Remove from queue";
+      btnWatchedEl.disabled = true;
 
       localStorage.setItem(QUEUE_KEY, JSON.stringify(queueFilmsInfo));
 
@@ -67,4 +77,20 @@ function isInLocalStorageQueue(data) {
   }
 
   return false;
+}
+
+function removeFromLocalStorageWatched(data) {
+  const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
+
+  const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+
+  localStorage.setItem(WATCHED_KEY, JSON.stringify(filteredArr));
+}
+
+function removeFromLocalStorageQueue(data) {
+  const localStorageDataWatched = JSON.parse(localStorage.getItem(QUEUE_KEY));
+
+  const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+
+  localStorage.setItem(QUEUE_KEY, JSON.stringify(filteredArr));
 }
