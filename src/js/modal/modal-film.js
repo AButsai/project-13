@@ -118,11 +118,6 @@ const langArr = {
     en: ' add to queue',
     uk: 'додати в чергу',
   },
-
-  removewatched: {
-    en: ' add to queue',
-    uk: '',
-  },
 };
 
 export function changeLanguageOnModal() {
