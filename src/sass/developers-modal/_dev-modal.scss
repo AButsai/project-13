@@ -1,0 +1,107 @@
+.dev-grid__base{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    grid-template-columns:170px;
+    grid-template-rows:   250px;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 5px;
+    @media screen and(min-width:1024px){
+        width: 100%;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr) ;
+        gap: 25px;
+        padding: 35px;
+    }
+    @media screen and(min-width:768px)and(max-width: 1023px){
+        gap: 25px;
+        padding: 30px;
+        width: 100%;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
+    }
+}
+.dev-grid__el{
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px 3px #8c8c8c;
+    width: 170px;
+    height: 250px;
+    overflow: hidden;
+    background-color: #efecec37;
+}
+.dev-modal{
+    &-button-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    @media screen and(min-width:768px)and(max-width: 1023px){
+        top: 4px;
+        right: 2px;
+    }
+    @media screen and(max-width:768px) {
+        position: absolute;
+        top: 4px;
+        right: 2px;
+        width: 20px;
+        height: 20px;
+    }
+    &-button-close:hover,
+    :focus {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+.dev-img{
+    height: 180px;
+    width: 170px;
+}
+.dev-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.18;
+    @media screen and(max-width:768px){
+        font-size: 14px;
+        line-height:1.14;
+    }
+}
+.dev-icons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5px;
+}
+.link-icon:nth-child(n){
+    height: 32px;
+    width: 32px;
+    &:hover{
+        background-color: $bg-active;
+    }
+    &:focus{
+        fill: $bg-active;
+    }
+}
+.dev-git{
+    mask-image: url(../images/icons.svg#github);
+    -webkit-mask-image: url(../images/icons.svg#github);
+    background-color: $text-footer;
+}
+.dev-linkedin{
+    mask-image:url(../images/icons.svg#linkedin);  
+    -webkit-mask-image:url(../images/icons.svg#linkedin); 
+    background-color: $text-footer;
+    fill: $bg-active;
+}
+.dev-mail{
+    mask-image:url(../images/icons.svg#email);
+    -webkit-mask-image:url(../images/icons.svg#email);
+    background-color: $text-footer;
+}
