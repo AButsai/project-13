@@ -9,7 +9,7 @@ import './js/modal/modal-film.js';
 import './js/language/setings_language';
 import './js/localStorage/localStorage';
 // import renderFilmCard from './js/card-templayte/card-templayte';
-
+import './js/developers-modal/dev-modal'
 import createFilmsList from './js/library/library';
 
 import getRefs from './js/refs/getRefs';
