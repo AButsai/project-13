@@ -10,7 +10,7 @@ import './js/language/setings_language';
 import './js/localStorage/localStorage';
 import './js/helpers/scroll-up';
 // import renderFilmCard from './js/card-templayte/card-templayte';
-
+import './js/developers-modal/dev-modal'
 import createFilmsList from './js/library/library';
 
 import getRefs from './js/refs/getRefs';
