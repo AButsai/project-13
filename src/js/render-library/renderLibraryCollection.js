@@ -2,7 +2,6 @@ import renderLibraryItems from './renderLibraryItems';
 import { loadFilms } from '../localStorage/localStorage';
 import getRefs from '../refs/getRefs';
 import { addedClassButton, removedClassButton } from './toggleClassButton';
-import galleryTpl from '../../partials/library-film/library-film.hbs';
 
 export const defaultPageLibrary = () => {
   const { libraryWatched, libraryQueue } = getRefs();

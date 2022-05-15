@@ -32,6 +32,17 @@ export default class MoviesService {
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
     console.log(data.results);
+    return data.results[1].key;
+  }
+
+  async getMovieById(id) {
+    const url = `
+    ${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=${JSON.parse(
+      localStorage.getItem('language'),
+    )}`;
+    const response = await fetch(url, { mode: 'cors' });
+    const data = await response.json();
+    console.log(data.results);
     return data.results[0].id;
   }
 
