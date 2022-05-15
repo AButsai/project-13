@@ -2,7 +2,7 @@ import renderLibraryItems from './renderLibraryItems';
 import { loadFilms } from '../storage/local-storage';
 import getRefs from '../refs/getRefs';
 import { addedClassButton, removedClassButton } from './toggleClassButton';
-// import getMovieById from '../service/apiLibrary';
+import getMovieById from '../service/apiMovies';
 
 export const defaultPageLibrary = () => {
   const { libraryWatched, libraryQueue } = getRefs();
