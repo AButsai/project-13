@@ -230,25 +230,47 @@ body.dark {
 	background: $bodyDark;
 }
 
-.swichers{
 
+
+.switchers{
+  align-items: center;
+  display: flex;
   position: absolute;
- top:5%;
- right: 10%;
-  @media (min-width: 768px) {}
+  bottom: 10%;
+  margin-left: 90px;
+    left: 50%;
+  transform: translate(-50%, 0);
+@media (min-width: 768px) {
+ margin-left: 300px;
+
+}
+ @media (min-width: 1024px) {
+margin-left: 425px;
+ }
+
 
 }
 .switchStyleLang{
+
   border: none;
-  background-color: rgba(255, 255, 255, 0.2);
-border-radius: 5px;
-height: 20px;
-font-family: "Roboto", sans-serif;
+  height: 24px;
+  width: 45px;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: $color-white;
+  margin-right: 15px;
+  background-color: $color-white;
+
+   
+}
+.select{
+padding: 0;
+margin: 0;
+
+
 }
 
 .checkbox {
