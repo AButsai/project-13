@@ -1,7 +1,9 @@
 import getRefs from '../refs/getRefs';
 import { renderFilmCard } from '../card-templayte/card-templayte';
-import { changeLanguageOnModal, openModal } from '../modal/modal-film';
+import { openModal } from '../modal/modal-film';
 import MoviesService from '../service/apiMovies';
+import { changeLanguageModal } from '../language/change-lang';
+import { langArrModalAdd } from '../language/arrLang';
 
 const response = new MoviesService();
 
@@ -15,8 +17,7 @@ function createFilmsList(films) {
     films.map(film => {
       if (film.id === Number(currentFilmId)) {
         openModal(film);
-        changeLanguageOnModal();
-
+        changeLanguageModal(langArrModalAdd);
         response.getVideoById(film.id).then(id => console.log(id));
       }
     });
