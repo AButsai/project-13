@@ -8,6 +8,11 @@
         height: 100px;
     }
 }
+
+.footerDark {
+    background-color: $color-black;
+}
+
 .footer__section-text{
     color:$text-footer;
     font-style: normal;
@@ -26,6 +31,12 @@
         
     }
 }
+
+.footerTextDark {
+    color:$color-white;
+}
+
+
 .heart-icon{
     margin-left: 5px;
     margin-right: 5px;

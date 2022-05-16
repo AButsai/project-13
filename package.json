@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.0.2",
+    "api": "^4.4.0",
     "axios": "^0.25.0",
     "basiclightbox": "^5.0.4",
     "handlebars": "^4.7.7",

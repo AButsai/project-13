@@ -4,6 +4,11 @@ body {
   font-size: 12px;
   line-height: 1.33;
   color: $color-black;
+
+  &.dark {
+    background-color: $bodyDark;
+    color: $color-white;
+  }
 }
 
 .container {
