@@ -14,20 +14,39 @@ export function makeLocalStorage(filmData) {
   btnWatchedEl.addEventListener('click', onButtonWatchedClick);
   btnQueueEl.addEventListener('click', onButtonQueueClick);
 
+  if (isInLocalStorageWatched(filmData)) {
+    const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
+    const checkLocalStorage = localStorageDataWatched.some(value => value.id === filmData.id);
+
+    if (checkLocalStorage) {
+      btnWatchedEl.textContent = 'Remove from watched';
+      btnQueueEl.disabled = true;
+    }
+  }
+
+  if (isInLocalStorageQueue(filmData)) {
+    const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
+    const checkLocalStorage = localStorageDataQueue.some(value => value.id === filmData.id);
+
+    if (checkLocalStorage) {
+      btnWatchedEl.disabled = true;
+    }
+  }
+
   function onButtonWatchedClick(evt) {
     evt.preventDefault();
 
     if (isInLocalStorageWatched(filmData)) {
       removeFromLocalStorageWatched(filmData);
 
-      evt.target.textContent = "Add to watched";
+      evt.target.textContent = 'Add to watched';
       btnQueueEl.disabled = false;
 
       Notiflix.Notify.failure('Successfully removed!');
     } else {
       watchedFilmsInfo.push(filmData);
 
-      evt.target.textContent = "Remove from watched";
+      evt.target.textContent = 'Remove from watched';
       btnQueueEl.disabled = true;
 
       localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedFilmsInfo));
@@ -41,15 +60,15 @@ export function makeLocalStorage(filmData) {
 
     if (isInLocalStorageQueue(filmData)) {
       removeFromLocalStorageQueue(filmData);
-      evt.target.textContent = "Add to queue";
+      evt.target.textContent = 'Add to queue';
 
       btnWatchedEl.disabled = false;
 
-      Notiflix.Notify.failure('Successfully removed!')
+      Notiflix.Notify.failure('Successfully removed!');
     } else {
       queueFilmsInfo.push(filmData);
 
-      evt.target.textContent = "Remove from queue";
+      evt.target.textContent = 'Remove from queue';
       btnWatchedEl.disabled = true;
 
       localStorage.setItem(QUEUE_KEY, JSON.stringify(queueFilmsInfo));
@@ -63,7 +82,7 @@ export function loadFilms(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
-function isInLocalStorageWatched(data) {
+export function isInLocalStorageWatched(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
   if (localStorageDataWatched !== null && localStorageDataWatched.length !== 0) {
@@ -73,7 +92,7 @@ function isInLocalStorageWatched(data) {
   return false;
 }
 
-function isInLocalStorageQueue(data) {
+export function isInLocalStorageQueue(data) {
   const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
 
   if (localStorageDataQueue !== null && localStorageDataQueue.length !== 0) {
@@ -87,6 +106,7 @@ function removeFromLocalStorageWatched(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
   const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  watchedFilmsInfo = watchedFilmsInfo.filter(value => value.id !== data.id);
 
   localStorage.setItem(WATCHED_KEY, JSON.stringify(filteredArr));
 }
@@ -95,6 +115,7 @@ function removeFromLocalStorageQueue(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(QUEUE_KEY));
 
   const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  queueFilmsInfo = queueFilmsInfo.filter(value => value.id !== data.id);
 
   localStorage.setItem(QUEUE_KEY, JSON.stringify(filteredArr));
 }

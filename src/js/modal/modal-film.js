@@ -111,18 +111,28 @@ export function openModal(data) {
 
 const langArr = {
   addwatched: {
-    en: 'add to Watched',
-    uk: 'додати до переглянутих',
+    en: { add: ' add to watched', remove: ' remove from watched' },
+    uk: { add: 'додати до переглянутих', remove: 'Прибрати з переглянутих' },
   },
   addqueue: {
-    en: ' add to queue',
-    uk: 'додати в чергу',
+    en: { add: ' add to queue', remove: ' remove from queue' },
+    uk: { add: 'додати в чергу', remove: 'Прибрати з черги' },
   },
 };
 
-export function changeLanguageOnModal() {
+export function changeLanguageOnModal(isInWatched, isInQueue) {
   const language = JSON.parse(localStorage.getItem('language'));
   for (let key in langArr) {
-    document.querySelector('.lang_' + key).innerHTML = langArr[key][language];
+    if (key === 'addwatched') {
+      document.querySelector('.lang_' + key).innerHTML =
+        langArr[key][language][isInWatched ? 'remove' : 'add'];
+      console.log(isInWatched);
+      console.log(isInQueue);
+    }
+
+    if (key === 'addqueue') {
+      document.querySelector('.lang_' + key).innerHTML =
+        langArr[key][language][isInQueue ? 'remove' : 'add'];
+    }
   }
 }

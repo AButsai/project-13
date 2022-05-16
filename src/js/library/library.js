@@ -1,6 +1,7 @@
 import getRefs from '../refs/getRefs';
 import { renderFilmCard } from '../card-templayte/card-templayte';
 import { changeLanguageOnModal, openModal } from '../modal/modal-film';
+import { isInLocalStorageWatched, isInLocalStorageQueue } from '../localStorage/localStorage';
 import MoviesService from '../service/apiMovies';
 
 const response = new MoviesService();
@@ -15,7 +16,7 @@ function createFilmsList(films) {
     films.map(film => {
       if (film.id === Number(currentFilmId)) {
         openModal(film);
-        changeLanguageOnModal();
+        changeLanguageOnModal(isInLocalStorageWatched(film), isInLocalStorageQueue(film));
 
         response.getVideoById(film.id).then(id => console.log(id));
       }
