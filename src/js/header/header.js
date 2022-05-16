@@ -12,6 +12,9 @@ const {
   chk,
   labelMoonSun,
   ballMoonSun,
+  root,
+  footerMoonSun,
+  footerTextMoonSun,
 } = getRefs();
 
 const handleClickHome = () => {
@@ -38,15 +41,27 @@ homeLink.forEach(link => {
 libraryLink.addEventListener('click', handleClickLibrary);
 
 const themeDark = () => {
+  const h2 = root.querySelectorAll('h2');
+  h2.forEach(el => {
+    el.style.color = '#ffffff';
+  })
   document.body.classList.add('dark');
   labelMoonSun.classList.add('labelDark'); 
   ballMoonSun.classList.remove('ballDark');
+  footerMoonSun.classList.add('footerDark'); 
+  footerTextMoonSun.classList.add('footerTextDark');
 };
 
 const themeLight = () => {
+  const h2 = root.querySelectorAll('h2');
+  h2.forEach(el => {
+    el.style.color = '#000000';
+  })
   document.body.classList.remove('dark');
   labelMoonSun.classList.remove('labelDark'); 
   ballMoonSun.classList.add('ballDark'); 
+  footerMoonSun.classList.remove('footerDark'); 
+  footerTextMoonSun.classList.remove('footerTextDark');
 };
 
 
@@ -77,4 +92,6 @@ function changeStatus () {
 }
 
 chk.addEventListener('change', changeStatus);
+
+
 
