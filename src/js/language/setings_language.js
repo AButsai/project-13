@@ -2,11 +2,11 @@ import { changeStoragelanguage } from './lang-work.js';
 
 const languages = [
   {
-    name: 'ENGLISH',
+    name: 'en',
     value: 'en',
   },
   {
-    name: 'УКРАЇНСЬКА',
+    name: 'ua',
     value: 'uk',
   },
 ];

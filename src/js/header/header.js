@@ -1,6 +1,18 @@
 import getRefs from '../refs/getRefs.js';
 
-const { homeLink, libraryLink, libraryWatched, libraryQueue, form, header, buttons, homeLinkCurrent, } = getRefs();
+const {
+  homeLink,
+  libraryLink,
+  libraryWatched,
+  libraryQueue,
+  form,
+  header,
+  buttons,
+  homeLinkCurrent,
+  chk,
+  labelMoonSun,
+  ballMoonSun,
+} = getRefs();
 
 const handleClickHome = () => {
   form.classList.remove('hidden');
@@ -20,91 +32,49 @@ const handleClickLibrary = () => {
   homeLinkCurrent.classList.remove('current');
 };
 
-const libraryWatchedColor = () => {
-  libraryWatched.classList.add('active');
-  libraryQueue.classList.remove('active');
-};
-
-const libraryQueueColor = () => {
-  libraryWatched.classList.remove('active');
-  libraryQueue.classList.add('active');
-};
-
 homeLink.forEach(link => {
   link.addEventListener('click', handleClickHome);
 });
 libraryLink.addEventListener('click', handleClickLibrary);
 
-libraryWatched.addEventListener('click', libraryWatchedColor);
-libraryQueue.addEventListener('click', libraryQueueColor);
+const themeDark = () => {
+  document.body.classList.add('dark');
+  labelMoonSun.classList.add('labelDark'); 
+  ballMoonSun.classList.remove('ballDark');
+};
+
+const themeLight = () => {
+  document.body.classList.remove('dark');
+  labelMoonSun.classList.remove('labelDark'); 
+  ballMoonSun.classList.add('ballDark'); 
+};
 
 
+if (localStorage.getItem('theme')===null){
+  localStorage.setItem('theme', "false");
+} 
 
+themeStatus ();
 
+function themeStatus () {
+  if (localStorage.getItem('theme')==="true") {
+    chk.checked = true; 
+    themeDark();
+  } else {
+    chk.checked = false;
+    themeLight();
+  }
+}
 
+function changeStatus () {
+  if (localStorage.getItem('theme')==="true") {
+    localStorage.setItem('theme', "false");
+    themeLight();
+  } else {
+    localStorage.setItem('theme', "true"); 
+    themeDark();
+  }
+}
 
+chk.addEventListener('change', changeStatus);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// document.querySelector('.themetoggle').addEventListener('click', (event)=> {
-//   event.preventDefault();
-//   if (localStorage.getItem('theme') === 'dark') {
-//     localStorage.removeItem('theme');
-//   } 
-//   else {
-//     localStorage.setItem('theme', 'dark');
-//   }
-//   addDarkClassToHTML();
-// });
-
-// function addDarkClassToHTML(){
-//   try {
-//     if (localStorage.getItem('theme') === 'dark') {
-//       document.querySelector('html').classList.add('dark');
-//       document.querySelector('.themetoggle span').textContent = 'dark_mode';
-//     }
-//     else {
-//       document.querySelector('html').classList.remove('dark');
-//       document.querySelector('.themetoggle span').textContent = 'wb_sunny';
-//     }
-//   } catch (err) {}
-// }
-
-// addDarkClassToHTML();
-
-
-// const chk = document.getElementById('chk');
-
-// chk.addEventListener('change', () => {
-// 	document.body.classList.toggle('dark');
-// });

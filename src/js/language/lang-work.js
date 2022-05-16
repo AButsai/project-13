@@ -28,7 +28,11 @@ export function changeStoragelanguage(lang) {
 }
 
 function changeLanguage() {
-  const language = JSON.parse(localStorage.getItem('language'));
+  const language =
+    JSON.parse(localStorage.getItem('language')) === null
+      ? 'en'
+      : JSON.parse(localStorage.getItem('language'));
+
   for (let key in langArr) {
     document.querySelector('.lang_placeholder').placeholder = langArr[key][language];
     document.querySelector('.lang_' + key).innerHTML = langArr[key][language];
