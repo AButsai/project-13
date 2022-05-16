@@ -16,7 +16,6 @@ function createFilmsList(films) {
       if (film.id === Number(currentFilmId)) {
         openModal(film);
         changeLanguageOnModal();
-
         response.getVideoById(film.id).then(id => console.log(id));
       }
     });

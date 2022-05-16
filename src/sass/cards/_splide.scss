@@ -1,0 +1,44 @@
+.splide-size{
+    width: 100%;
+    margin: 30px 0px 30px 0px;
+}
+
+.splide-cards-size{
+    padding-right: 2px;
+    padding-left: 2px;
+    display: block;
+    height:100%;
+    @media (min-width: 768px) {
+        padding-right: 2px;
+        padding-left: 2px;
+      }
+      
+    
+    @media (min-width: 1024px) {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+}
+.slider-img{
+    height: 150px;
+    @media (min-width: 768px) {
+        height: 250px;
+      }
+      
+    
+    @media (min-width: 1024px) {
+        height: 273px;
+      }
+}
+
+.slide-title{
+    padding-left: 3%;
+    padding-bottom: 1%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1.33;
+    // text-transform: uppercase;
+    color: $color-black;
+    text-shadow: 1px -1px 1px $bg-active;;
+}
