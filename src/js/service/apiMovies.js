@@ -31,8 +31,9 @@ export default class MoviesService {
     )}`;
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
+
     console.log(data.results);
-    return data.results[1].key;
+    return data.results[0].key;
   }
 
   async getMovieById(id) {
