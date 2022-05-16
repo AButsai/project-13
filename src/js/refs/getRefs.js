@@ -32,7 +32,9 @@ function getRefs() {
     chk: document.getElementById('chk'),
     labelMoonSun: document.querySelector('.label'),
     ballMoonSun: document.querySelector('.ball'),
-
+    root: document.querySelector('#root'),
+    footerMoonSun: document.querySelector('.footer'),
+    footerTextMoonSun: document.querySelector('.footer__section-text'),
   };
 }
 

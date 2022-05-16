@@ -1,5 +1,7 @@
 import genresJSON from '../../json/./genres/genres.json';
 import createFilmsList from '../library/library';
+const themaDark = localStorage.getItem('theme');
+
 
 // принимает  responce.results
 export const changeGenresIdForName = function(films) {
