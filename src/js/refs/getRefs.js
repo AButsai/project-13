@@ -12,6 +12,9 @@ function getRefs() {
     // Main
     main: document.querySelector('.main'),
     cardslist: document.querySelector('.films-grid'),
+    //Slider
+    sliderList: document.querySelector('.splide__list'),
+    
     //Spinner
 
     closeModalBtn: document.querySelector('.modal_button-close'),

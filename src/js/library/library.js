@@ -29,6 +29,7 @@ function createFilmsList(films) {
     films.map(film => {
       if (film.id === Number(currentFilmId)) {
         openModal(film);
+        changeLanguageOnModal();
         changeLanguageModal(langArrModalAdd);
         response.getVideoById(film.id).then(id => console.log(id));
       }
