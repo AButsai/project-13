@@ -8,6 +8,7 @@ import smoothScroll from '../smooth-scroll/smooth-scroll';
 const moviesService = new MoviesService();
 
 getRefs().searchForm.addEventListener('submit', onSearch);
+// getRefs().cardTrailer.addEventListener('click', onClickTrailer);
 
 function onSearch(e) {
   e.preventDefault();
@@ -26,6 +27,8 @@ function onSearch(e) {
   renderSearch();
   e.currentTarget.reset();
 }
+// Отображение трейлера
+
 //Рендер популярных фильмов
 function renderPopular() {
   const popularMovies = moviesService

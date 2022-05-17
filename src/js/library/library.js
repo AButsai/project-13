@@ -1,4 +1,5 @@
 import getRefs from '../refs/getRefs';
+import { createPlayer } from '../service/trailer';
 import { renderFilmCard } from '../card-templayte/card-templayte';
 import { openModal } from '../modal/modal-film';
 import MoviesService from '../service/apiMovies';
@@ -7,6 +8,9 @@ import { langArrModalAdd } from '../language/arrLang';
 
 const {homeLink, cardslist,} = getRefs();
 const response = new MoviesService();
+
+const { modal, overlay } = getRefs();
+
 
 homeLink.forEach(link => {
   link.addEventListener('click', ()=> {
@@ -19,9 +23,24 @@ homeLink.forEach(link => {
   });
 });
 
+
 function createFilmsList(films) {
   const markup = films.map(film => renderFilmCard(film)).join('');
   getRefs().cardslist.insertAdjacentHTML('beforeend', markup);
+
+  const trailers = document.querySelectorAll('.card-trailer');
+  trailers.forEach(trailer => {
+    trailer.addEventListener('click', event => {
+      // response.getMovieById(film)
+      const id = event.currentTarget.id;
+      console.log(id);
+      response.getVideoById(id).then(key => {
+        overlay.classList.remove('visually-hidden');
+
+        modal.insertAdjacentHTML('beforeend', createPlayer(key));
+      });
+    });
+  });
 
   function onCardFilmClick(e) {
     e.preventDefault();
@@ -38,5 +57,20 @@ function createFilmsList(films) {
 
   getRefs().cardslist.addEventListener('click', onCardFilmClick);
 }
+
+const getVideoinPopap = key => {
+  overlay.classList.remove('visually-hidden');
+
+  modal.innerHtml = createPlayer(key);
+  const modalClosed = () => {
+    modal.innerHtml = createPlayer('');
+    closeModalBtn.addEventListener('click', modalClosed);
+    overlay.addEventListener('click', e => {
+      if (e.target === e.currentTarget) {
+        modalClosed();
+      }
+    });
+  };
+};
 
 export default createFilmsList;

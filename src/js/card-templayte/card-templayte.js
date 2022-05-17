@@ -5,7 +5,7 @@ import {createSlider} from './slider-films';
 const themaDark = localStorage.getItem('theme');
 
 // принимает  responce.results
-export const changeGenresIdForName = function(films) {
+export const changeGenresIdForName = function (films) {
   let filmsInfo = [];
 
   films
@@ -57,7 +57,7 @@ function correctGenres(filmsInfo) {
   });
 }
 
-export const renderFilmCard = function(film) {
+export const renderFilmCard = function (film) {
   const urlImg = 'https://image.tmdb.org/t/p/w500';
   let img = '';
 
@@ -71,11 +71,12 @@ export const renderFilmCard = function(film) {
     <a href="#">
       <div class="img__wrapper">
         <img class="card-img" src="${img}" alt="${film.title}" data-index = ${film.id}>
-        <a href="#" class="card-trailer"></a> 
+        <a href="#" class="card-trailer" id="${film.id}"></a> 
       </div>
         <h2 class="card-title">${film.title.toUpperCase()}</h2>
-        <p class="card-genres">${film.genres}
-        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>            
+        <p class="card-genres">${film.genres}               
+         ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>            
+
     </a>  
         </li>`;
 };
