@@ -6,8 +6,7 @@ body {
   color: $color-black;
 
   &.dark {
-    background-color: $bodyDark;
-    color: $color-white;
+    background-color: $color-black;
   }
 }
 

@@ -15,6 +15,7 @@ const {
   root,
   footerMoonSun,
   footerTextMoonSun,
+  bodyMoonSun,
 } = getRefs();
 
 const handleClickHome = () => {
@@ -45,7 +46,7 @@ const themeDark = () => {
   h2.forEach(el => {
     el.style.color = '#ffffff';
   })
-  document.body.classList.add('dark');
+  bodyMoonSun.classList.add('dark');
   labelMoonSun.classList.add('labelDark'); 
   ballMoonSun.classList.remove('ballDark');
   footerMoonSun.classList.add('footerDark'); 
@@ -57,7 +58,7 @@ const themeLight = () => {
   h2.forEach(el => {
     el.style.color = '#000000';
   })
-  document.body.classList.remove('dark');
+  bodyMoonSun.classList.remove('dark');
   labelMoonSun.classList.remove('labelDark'); 
   ballMoonSun.classList.add('ballDark'); 
   footerMoonSun.classList.remove('footerDark'); 
@@ -71,6 +72,8 @@ if (localStorage.getItem('theme')===null){
 
 themeStatus ();
 
+let isTheme =  false;
+
 function themeStatus () {
   if (localStorage.getItem('theme')==="true") {
     chk.checked = true; 
@@ -81,17 +84,23 @@ function themeStatus () {
   }
 }
 
+
 function changeStatus () {
   if (localStorage.getItem('theme')==="true") {
     localStorage.setItem('theme', "false");
     themeLight();
+    isTheme = false;
   } else {
     localStorage.setItem('theme', "true"); 
     themeDark();
+    isTheme = true;
   }
 }
 
+
 chk.addEventListener('change', changeStatus);
 
-
-
+export function themes () {
+  console.log(isTheme);
+  return isTheme; 
+}

@@ -35,6 +35,7 @@ function getRefs() {
     root: document.querySelector('#root'),
     footerMoonSun: document.querySelector('.footer'),
     footerTextMoonSun: document.querySelector('.footer__section-text'),
+    bodyMoonSun: document.querySelector('body'),
   };
 }
 
