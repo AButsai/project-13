@@ -5,17 +5,16 @@ import MoviesService from '../service/apiMovies';
 import { changeLanguageModal } from '../language/change-lang';
 import { langArrModalAdd } from '../language/arrLang';
 
-const {homeLink, cardslist,} = getRefs();
+const { homeLink, cardslist } = getRefs();
 const response = new MoviesService();
 
 homeLink.forEach(link => {
-  link.addEventListener('click', ()=> {
+  link.addEventListener('click', () => {
+    response.newSearchName('');
+    response.resetPage();
 
-  response.newSearchName('');
-  response.resetPage();
-
-  cardslist.innerHTML = '';
-  response.getPopularMovies().then(response => createFilmsList(response));
+    cardslist.innerHTML = '';
+    response.getPopularMovies().then(response => createFilmsList(response));
   });
 });
 
@@ -29,7 +28,7 @@ function createFilmsList(films) {
     films.map(film => {
       if (film.id === Number(currentFilmId)) {
         openModal(film);
-        changeLanguageOnModal();
+
         changeLanguageModal(langArrModalAdd);
         response.getVideoById(film.id).then(id => console.log(id));
       }
