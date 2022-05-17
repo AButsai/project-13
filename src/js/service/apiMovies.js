@@ -21,23 +21,24 @@ export default class MoviesService {
    */
 
   async getPopularMovies() {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=${
-      this.language
-    }&page=${this.page}`;
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${this.page}`;
     const response = await fetch(url, { mode: 'cors' });
     const { results } = await response.json();
     return results;
   }
 
   async getVideoById(id) {
-    const url = `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}&language=${
-      this.language
-    }`;
+    const url = `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}&language=${this.language}`;
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
-
-    console.log(data.results);
-    return data.results[0].key;
+    if (!data.results[1]) {
+      if (!data.results[0]) {
+        console.log(data);
+        return -1;
+      }
+      return data.results[0].key;
+    }
+    return data.results[1].key;
   }
 
   async getMovieById(id) {
@@ -52,9 +53,7 @@ export default class MoviesService {
   }
 
   async searchMovies() {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${
-      this.language
-    }&page=${this.page}&query=${this.searchQuery}`;
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${this.language}&page=${this.page}&query=${this.searchQuery}`;
 
     return this.cacheGenresList()
       .then(_ => fetch(url, { mode: 'cors' }))

@@ -6,23 +6,20 @@ import MoviesService from '../service/apiMovies';
 import { changeLanguageModal } from '../language/change-lang';
 import { langArrModalAdd } from '../language/arrLang';
 
-const {homeLink, cardslist,} = getRefs();
+const { homeLink, cardslist } = getRefs();
 const response = new MoviesService();
 
 const { modal, overlay } = getRefs();
 
-
 homeLink.forEach(link => {
-  link.addEventListener('click', ()=> {
+  link.addEventListener('click', () => {
+    response.newSearchName('');
+    response.resetPage();
 
-  response.newSearchName('');
-  response.resetPage();
-
-  cardslist.innerHTML = '';
-  response.getPopularMovies().then(response => createFilmsList(response));
+    cardslist.innerHTML = '';
+    response.getPopularMovies().then(response => createFilmsList(response));
   });
 });
-
 
 function createFilmsList(films) {
   const markup = films.map(film => renderFilmCard(film)).join('');
@@ -34,11 +31,14 @@ function createFilmsList(films) {
       // response.getMovieById(film)
       const id = event.currentTarget.id;
       console.log(id);
-      response.getVideoById(id).then(key => {
-        overlay.classList.remove('visually-hidden');
+      response
+        .getVideoById(id)
+        .then(key => {
+          overlay.classList.remove('visually-hidden');
 
-        modal.insertAdjacentHTML('beforeend', createPlayer(key));
-      });
+          modal.insertAdjacentHTML('beforeend', createPlayer(key));
+        })
+        .catch(error => createPlayer(error));
     });
   });
 
