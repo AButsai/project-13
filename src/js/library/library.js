@@ -6,20 +6,20 @@ import MoviesService from '../service/apiMovies';
 import { changeLanguageModal } from '../language/change-lang';
 import { langArrModalAdd } from '../language/arrLang';
 
-const { homeLink, cardslist } = getRefs();
+// const { homeLink, cardslist } = getRefs();
 const response = new MoviesService();
 
 const { modal, overlay } = getRefs();
 
-homeLink.forEach(link => {
-  link.addEventListener('click', () => {
-    response.newSearchName('');
-    response.resetPage();
+// homeLink.forEach(link => {
+//   link.addEventListener('click', () => {
+//     response.newSearchName('');
+//     response.resetPage();
 
-    cardslist.innerHTML = '';
-    response.getPopularMovies().then(response => createFilmsList(response));
-  });
-});
+//     cardslist.innerHTML = '';
+//     response.getPopularMovies().then(response => createFilmsList(response));
+//   });
+// });
 
 function createFilmsList(films) {
   const markup = films.map(film => renderFilmCard(film)).join('');

@@ -18,6 +18,7 @@ const {
 } = getRefs();
 
 const handleClickHome = () => {
+  document.location.reload();
   form.classList.remove('hidden');
   header.classList.remove('header-library');
   buttons.classList.add('hidden');
