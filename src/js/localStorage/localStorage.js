@@ -16,13 +16,37 @@ export function makeLocalStorage(filmData) {
   btnWatchedEl.addEventListener('click', onButtonWatchedClick);
   btnQueueEl.addEventListener('click', onButtonQueueClick);
 
+  if (isInLocalStorageWatched(filmData)) {
+    const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
+
+    const checkLocalStorageWatched = localStorageDataWatched.some(
+      value => value.id === filmData.id,
+    );
+
+    if (checkLocalStorageWatched) {
+      btnWatchedEl.textContent = 'Remove from watched';
+      btnQueueEl.disabled = true;
+    }
+  }
+
+  if (isInLocalStorageQueue(filmData)) {
+    const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
+
+    const checkLocalStorageQueue = localStorageDataQueue.some(value => value.id === filmData.id);
+
+    if (checkLocalStorageQueue) {
+      btnQueueEl.textContent = 'Remove from queue';
+      btnWatchedEl.disabled = true;
+    }
+  }
+
   function onButtonWatchedClick(evt) {
     evt.preventDefault();
 
     if (isInLocalStorageWatched(filmData)) {
       removeFromLocalStorageWatched(filmData);
 
-      // evt.target.textContent = "Add to watched";
+      // evt.target.textContent = 'Add to watched';
       btnQueueEl.disabled = false;
       changeLanguageModal(langArrModalAdd);
 
@@ -91,14 +115,16 @@ function removeFromLocalStorageWatched(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
   const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  watchedFilmsInfo = filteredArr;
 
   localStorage.setItem(WATCHED_KEY, JSON.stringify(filteredArr));
 }
 
 function removeFromLocalStorageQueue(data) {
-  const localStorageDataWatched = JSON.parse(localStorage.getItem(QUEUE_KEY));
+  const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
 
-  const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  const filteredArr = localStorageDataQueue.filter(value => value.id !== data.id);
+  queueFilmsInfo = filteredArr;
 
   localStorage.setItem(QUEUE_KEY, JSON.stringify(filteredArr));
 }
