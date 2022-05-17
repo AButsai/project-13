@@ -77,10 +77,7 @@ export const renderFilmCard = function (film) {
         </div>
         <h2 class="card-title ${isTheme ? 'card-titleDark' : ''}">${film.title.toUpperCase()}</h2>
         <p class="card-genres">${film.genres}
-        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p> 
-        <a href="#" class="card-trailer"></a>                
-
-       
+        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>                 
     </a>  
-        </li>`;
+   </li>`;
 };
