@@ -1,12 +1,9 @@
 import genresJSON from '../../json/./genres/genres.json';
 import createFilmsList from '../library/library';
-<<<<<<< HEAD
 import { themes } from '../header/header.js';
-=======
-import {createSlider} from './slider-films';
+import { createSlider } from './slider-films';
 
 const themaDark = localStorage.getItem('theme');
->>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
 
 // принимает  responce.results
 export const changeGenresIdForName = function (films) {
@@ -15,7 +12,7 @@ export const changeGenresIdForName = function (films) {
   films
     .filter(film => {
       const { overview, poster_path, vote_average, title } = film;
-      if ((poster_path !== null) || (poster_path !== '')) {
+      if (poster_path !== null || poster_path !== '') {
         if (
           (poster_path !== null && vote_average !== 0) ||
           (poster_path !== '' && vote_average !== 0)
@@ -48,7 +45,7 @@ export const changeGenresIdForName = function (films) {
       filmsInfo.push(filmWithGenres);
     });
   correctGenres(filmsInfo);
-  createSlider(filmsInfo);  
+  createSlider(filmsInfo);
   createFilmsList(filmsInfo);
 };
 
@@ -76,19 +73,14 @@ export const renderFilmCard = function (film) {
     <a href="#">
       <div class="img__wrapper">
         <img class="card-img" src="${img}" alt="${film.title}" data-index = ${film.id}>
-<<<<<<< HEAD
-        <h2 class="card-title ${isTheme ? 'card-titleDark':''}">${film.title.toUpperCase()}</h2>
+        <a href="#" class="card-trailer" id="${film.id}"></a> 
+        </div>
+        <h2 class="card-title ${isTheme ? 'card-titleDark' : ''}">${film.title.toUpperCase()}</h2>
         <p class="card-genres">${film.genres}
         | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p> 
         <a href="#" class="card-trailer"></a>                
-=======
-        <a href="#" class="card-trailer" id="${film.id}"></a> 
-      </div>
-        <h2 class="card-title">${film.title.toUpperCase()}</h2>
-        <p class="card-genres">${film.genres}               
-         ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>            
 
->>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
+       
     </a>  
         </li>`;
 };
