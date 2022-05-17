@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
-// export const API_KEY = process.env.API_KEY;
-const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
+export const API_KEY = process.env.API_KEY;
+// const API_KEY = '38f8f0caa293ab4deac25df0604d8478';
 
 export const BASE_URL = 'https://api.themoviedb.org/3';
 export default class MoviesService {
@@ -21,22 +21,19 @@ export default class MoviesService {
    */
 
   async getPopularMovies() {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=${
-      this.language
-    }&page=${this.page}`;
+    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${this.page}`;
     const response = await fetch(url, { mode: 'cors' });
     const { results } = await response.json();
     return results;
   }
 
   async getVideoById(id) {
-    const url = `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}&language=${
-      this.language
-    }`;
+    const url = `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}&language=${this.language}`;
     const response = await fetch(url, { mode: 'cors' });
     const data = await response.json();
+
     console.log(data.results);
-    return data.results[1].key;
+    return data.results[0].key;
   }
 
   async getMovieById(id) {
@@ -51,9 +48,7 @@ export default class MoviesService {
   }
 
   async searchMovies() {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${
-      this.language
-    }&page=${this.page}&query=${this.searchQuery}`;
+    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=${this.language}&page=${this.page}&query=${this.searchQuery}`;
 
     return this.cacheGenresList()
       .then(_ => fetch(url, { mode: 'cors' }))

@@ -90,6 +90,7 @@ function makeModal({
 
     <ul class="button-list">
       <li>
+<<<<<<< HEAD
         <button type="button" class="button-list_buttonStyle film-card-button_watched lang_addwatched ${isTheme ? 'button-listDark':''}">
           add to Watched
         </button>
@@ -97,6 +98,15 @@ function makeModal({
       <li>
         <button type="button" class="button-list_buttonStyle film-card-button_queue lang_addqueue ${isTheme ? 'button-listDark':''}">
           add to queue
+=======
+        <button type="button" class="button-list_buttonStyle film-card-button_watched lang_addwatched">
+          
+        </button>
+      </li>
+      <li>
+        <button type="button" class="button-list_buttonStyle film-card-button_queue lang_addqueue">
+     
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
         </button>
       </li>
     </ul>
@@ -110,22 +120,4 @@ export function openModal(data) {
   backdrop.classList.remove('visually-hidden');
 
   makeLocalStorage(data);
-}
-
-const langArr = {
-  addwatched: {
-    en: 'add to Watched',
-    uk: 'додати до переглянутих',
-  },
-  addqueue: {
-    en: ' add to queue',
-    uk: 'додати в чергу',
-  },
-};
-
-export function changeLanguageOnModal() {
-  const language = JSON.parse(localStorage.getItem('language'));
-  for (let key in langArr) {
-    document.querySelector('.lang_' + key).innerHTML = langArr[key][language];
-  }
 }

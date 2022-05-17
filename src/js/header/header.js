@@ -45,11 +45,17 @@ const themeDark = () => {
   const h2 = root.querySelectorAll('h2');
   h2.forEach(el => {
     el.style.color = '#ffffff';
+<<<<<<< HEAD
   })
   bodyMoonSun.classList.add('dark');
   labelMoonSun.classList.add('labelDark'); 
+=======
+  });
+  document.body.classList.add('dark');
+  labelMoonSun.classList.add('labelDark');
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
   ballMoonSun.classList.remove('ballDark');
-  footerMoonSun.classList.add('footerDark'); 
+  footerMoonSun.classList.add('footerDark');
   footerTextMoonSun.classList.add('footerTextDark');
 };
 
@@ -57,26 +63,39 @@ const themeLight = () => {
   const h2 = root.querySelectorAll('h2');
   h2.forEach(el => {
     el.style.color = '#000000';
+<<<<<<< HEAD
   })
   bodyMoonSun.classList.remove('dark');
   labelMoonSun.classList.remove('labelDark'); 
   ballMoonSun.classList.add('ballDark'); 
   footerMoonSun.classList.remove('footerDark'); 
+=======
+  });
+  document.body.classList.remove('dark');
+  labelMoonSun.classList.remove('labelDark');
+  ballMoonSun.classList.add('ballDark');
+  footerMoonSun.classList.remove('footerDark');
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
   footerTextMoonSun.classList.remove('footerTextDark');
 };
 
+if (localStorage.getItem('theme') === null) {
+  localStorage.setItem('theme', 'false');
+}
 
-if (localStorage.getItem('theme')===null){
-  localStorage.setItem('theme', "false");
-} 
+themeStatus();
 
-themeStatus ();
-
+<<<<<<< HEAD
 let isTheme =  false;
 
 function themeStatus () {
   if (localStorage.getItem('theme')==="true") {
     chk.checked = true; 
+=======
+function themeStatus() {
+  if (localStorage.getItem('theme') === 'true') {
+    chk.checked = true;
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
     themeDark();
   } else {
     chk.checked = false;
@@ -84,19 +103,26 @@ function themeStatus () {
   }
 }
 
+<<<<<<< HEAD
 
 function changeStatus () {
   if (localStorage.getItem('theme')==="true") {
     localStorage.setItem('theme', "false");
+=======
+function changeStatus() {
+  if (localStorage.getItem('theme') === 'true') {
+    localStorage.setItem('theme', 'false');
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
     themeLight();
     isTheme = false;
   } else {
-    localStorage.setItem('theme', "true"); 
+    localStorage.setItem('theme', 'true');
     themeDark();
     isTheme = true;
   }
 }
 
+<<<<<<< HEAD
 
 chk.addEventListener('change', changeStatus);
 
@@ -104,3 +130,6 @@ export function themes () {
   console.log(isTheme);
   return isTheme; 
 }
+=======
+chk.addEventListener('change', changeStatus);
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3

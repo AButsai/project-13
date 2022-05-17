@@ -1,5 +1,7 @@
 import getRefs from '../refs/getRefs';
 import Notiflix from 'notiflix';
+import { changeLanguageModal } from '../language/change-lang';
+import { langArrModalAdd, langArrModalRemove } from '../language/arrLang';
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
@@ -14,22 +16,47 @@ export function makeLocalStorage(filmData) {
   btnWatchedEl.addEventListener('click', onButtonWatchedClick);
   btnQueueEl.addEventListener('click', onButtonQueueClick);
 
+  if (isInLocalStorageWatched(filmData)) {
+    const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
+
+    const checkLocalStorageWatched = localStorageDataWatched.some(
+      value => value.id === filmData.id,
+    );
+
+    if (checkLocalStorageWatched) {
+      btnWatchedEl.textContent = 'Remove from watched';
+      btnQueueEl.disabled = true;
+    }
+  }
+
+  if (isInLocalStorageQueue(filmData)) {
+    const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
+
+    const checkLocalStorageQueue = localStorageDataQueue.some(value => value.id === filmData.id);
+
+    if (checkLocalStorageQueue) {
+      btnQueueEl.textContent = 'Remove from queue';
+      btnWatchedEl.disabled = true;
+    }
+  }
+
   function onButtonWatchedClick(evt) {
     evt.preventDefault();
 
     if (isInLocalStorageWatched(filmData)) {
       removeFromLocalStorageWatched(filmData);
 
-      evt.target.textContent = "Add to watched";
+      // evt.target.textContent = 'Add to watched';
       btnQueueEl.disabled = false;
+      changeLanguageModal(langArrModalAdd);
 
       Notiflix.Notify.failure('Successfully removed!');
     } else {
       watchedFilmsInfo.push(filmData);
 
-      evt.target.textContent = "Remove from watched";
+      // evt.target.textContent = 'Remove from watched';
       btnQueueEl.disabled = true;
-
+      changeLanguageModal(langArrModalRemove);
       localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedFilmsInfo));
 
       Notiflix.Notify.success('Successfully added!');
@@ -41,16 +68,17 @@ export function makeLocalStorage(filmData) {
 
     if (isInLocalStorageQueue(filmData)) {
       removeFromLocalStorageQueue(filmData);
-      evt.target.textContent = "Add to queue";
+      // evt.target.textContent = 'Add to queue';
 
       btnWatchedEl.disabled = false;
-
-      Notiflix.Notify.failure('Successfully removed!')
+      changeLanguageModal(langArrModalAdd);
+      Notiflix.Notify.failure('Successfully removed!');
     } else {
       queueFilmsInfo.push(filmData);
 
-      evt.target.textContent = "Remove from queue";
+      // evt.target.textContent = 'Remove from queue';
       btnWatchedEl.disabled = true;
+      changeLanguageModal(langArrModalRemove);
 
       localStorage.setItem(QUEUE_KEY, JSON.stringify(queueFilmsInfo));
 
@@ -87,14 +115,16 @@ function removeFromLocalStorageWatched(data) {
   const localStorageDataWatched = JSON.parse(localStorage.getItem(WATCHED_KEY));
 
   const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  watchedFilmsInfo = filteredArr;
 
   localStorage.setItem(WATCHED_KEY, JSON.stringify(filteredArr));
 }
 
 function removeFromLocalStorageQueue(data) {
-  const localStorageDataWatched = JSON.parse(localStorage.getItem(QUEUE_KEY));
+  const localStorageDataQueue = JSON.parse(localStorage.getItem(QUEUE_KEY));
 
-  const filteredArr = localStorageDataWatched.filter(value => value.id !== data.id);
+  const filteredArr = localStorageDataQueue.filter(value => value.id !== data.id);
+  queueFilmsInfo = filteredArr;
 
   localStorage.setItem(QUEUE_KEY, JSON.stringify(filteredArr));
 }
