@@ -11,7 +11,6 @@ const response = new MoviesService();
 
 const { modal, overlay } = getRefs();
 
-
 homeLink.forEach(link => {
   link.addEventListener('click', () => {
     response.newSearchName('');
@@ -21,7 +20,6 @@ homeLink.forEach(link => {
     response.getPopularMovies().then(response => createFilmsList(response));
   });
 });
-
 
 function createFilmsList(films) {
   const markup = films.map(film => renderFilmCard(film)).join('');
