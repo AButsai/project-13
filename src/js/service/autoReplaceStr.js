@@ -78,5 +78,7 @@ function Auto(str) {
       return a == a.toLowerCase() ? search[i] : search[i].toUpperCase();
     });
   }
-  return Auto(str);
+  return str;
 }
+
+export default Auto;

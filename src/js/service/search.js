@@ -4,6 +4,7 @@ import infinityScroll from '../infinity-scroll/infinity-scroll';
 import { changeGenresIdForName } from '../card-templayte/card-templayte';
 import Notiflix from 'notiflix';
 import smoothScroll from '../smooth-scroll/smooth-scroll';
+import Auto from './autoReplaceStr';
 
 const moviesService = new MoviesService();
 
@@ -12,7 +13,8 @@ getRefs().searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
-  const searchQuery = e.currentTarget.elements.name.value;
+  const name = e.currentTarget.elements.name.value;
+  const searchQuery = Auto(name);
   if (searchQuery === '') {
     getRefs().galleryList.innerHTML = '';
 
