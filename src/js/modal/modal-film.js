@@ -103,7 +103,7 @@ function makeModal({
 }
 
 export function openModal(data) {
-  modal.insertAdjacentHTML('beforeend', makeModal(data));
+  modal.innerHTML = makeModal(data);
   backdrop.classList.remove('visually-hidden');
 
   makeLocalStorage(data);
