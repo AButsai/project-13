@@ -90,7 +90,6 @@ function makeModal({
 
     <ul class="button-list">
       <li>
-<<<<<<< HEAD
         <button type="button" class="button-list_buttonStyle film-card-button_watched lang_addwatched ${isTheme ? 'button-listDark':''}">
           add to Watched
         </button>
@@ -98,15 +97,6 @@ function makeModal({
       <li>
         <button type="button" class="button-list_buttonStyle film-card-button_queue lang_addqueue ${isTheme ? 'button-listDark':''}">
           add to queue
-=======
-        <button type="button" class="button-list_buttonStyle film-card-button_watched lang_addwatched">
-          
-        </button>
-      </li>
-      <li>
-        <button type="button" class="button-list_buttonStyle film-card-button_queue lang_addqueue">
-     
->>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
         </button>
       </li>
     </ul>
