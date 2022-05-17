@@ -31,11 +31,14 @@ function createFilmsList(films) {
       // response.getMovieById(film)
       const id = event.currentTarget.id;
       console.log(id);
-      response.getVideoById(id).then(key => {
-        overlay.classList.remove('visually-hidden');
+      response
+        .getVideoById(id)
+        .then(key => {
+          overlay.classList.remove('visually-hidden');
 
-        modal.insertAdjacentHTML('beforeend', createPlayer(key));
-      });
+          modal.insertAdjacentHTML('beforeend', createPlayer(key));
+        })
+        .catch(error => createPlayer(error));
     });
   });
 
