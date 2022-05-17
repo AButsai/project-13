@@ -4,6 +4,11 @@ body {
   font-size: 12px;
   line-height: 1.33;
   color: $color-black;
+
+  &.dark {
+    background-color: $bodyDark;
+    color: $color-white;
+  }
 }
 
 .container {
@@ -59,4 +64,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+.visability{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s ease;
 }

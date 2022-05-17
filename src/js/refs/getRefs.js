@@ -12,7 +12,13 @@ function getRefs() {
     // Main
     main: document.querySelector('.main'),
     cardslist: document.querySelector('.films-grid'),
+
     cardTrailer: document.querySelector('.card-trailer'),
+
+    //Slider
+    sliderList: document.querySelector('.splide__list'),
+    
+
     //Spinner
 
     closeModalBtn: document.querySelector('.modal_button-close'),
@@ -34,6 +40,11 @@ function getRefs() {
     chk: document.getElementById('chk'),
     labelMoonSun: document.querySelector('.label'),
     ballMoonSun: document.querySelector('.ball'),
+
+    root: document.querySelector('#root'),
+    footerMoonSun: document.querySelector('.footer'),
+    footerTextMoonSun: document.querySelector('.footer__section-text'),
+
   };
 }
 

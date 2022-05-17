@@ -1,6 +1,5 @@
 <header class="header">
   <div class="container">
-    
     <div class="wrap">
       <a class="logo__link" href="#" data-home>
         <svg class="logo__svg">
@@ -12,12 +11,9 @@
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__item nav__item--margin">
-            
             <button class="nav__link current lang_home" type="button" data-home data-curr>
               Home
             </button>
-            <!-- <a class="nav__link current" href="#" data-home data-curr>Home</a> -->
-
           </li>
           <li class="nav__item">
             <button class="nav__link lang_library" type="button" data-library>my library</button>
@@ -25,6 +21,7 @@
         </ul>
       </nav>
     </div>
+
     <form class="form">
       <label class="form__label">
         <input
@@ -38,22 +35,20 @@
     </form>
 
     <div class="library hidden">
-      <button class="library__btn active lang_watched" type="button" data-watched>Watched</button>
+      <button class="library__btn lang_watched" type="button" data-watched>Watched</button>
       <button class="library__btn library__btn--margin lang_queue" type="button" data-queue>
         queue
       </button>
     </div>
-    <div class="swichers">
-      <div class="select"></div>
+  </div>
+
+  <div class="switchers">
+    <div class="select"></div>
+    <div class="moonSun">
+      <input type="checkbox" class="checkbox" id="chk" />
+      <label class="label" for="chk">
+        <div class="ball"></div>
+      </label>
     </div>
-    
-  <div class= "swichers">
-   <div class="select"></div>
-   <div class="moonSun">
-    <input type="checkbox" class="checkbox" id="chk" />
-    <label class="label" for="chk">
-      <div class="ball"></div>
-    </label>
-  </div> 
   </div>
 </header>

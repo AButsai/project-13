@@ -1,0 +1,31 @@
+.scroll-up-btn{
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 20px;
+    border: none;
+
+    opacity: 60%;
+    background-color: $bg-active;
+
+    transition: all .9s ease;
+
+    cursor: pointer;
+
+    &:hover{
+        opacity: 100%;
+        transition: all .9s ease;
+    }
+
+    &__svg{
+        height: 60px;
+        width: 60px;
+
+        text-align: center;
+        fill: $color-white;                                                
+    }
+}

@@ -1,6 +1,21 @@
 import getRefs from '../refs/getRefs.js';
 
-const { homeLink, libraryLink, libraryWatched, libraryQueue, form, header, buttons, homeLinkCurrent, chk, labelMoonSun, ballMoonSun, } = getRefs();
+const {
+  homeLink,
+  libraryLink,
+  libraryWatched,
+  libraryQueue,
+  form,
+  header,
+  buttons,
+  homeLinkCurrent,
+  chk,
+  labelMoonSun,
+  ballMoonSun,
+  root,
+  footerMoonSun,
+  footerTextMoonSun,
+} = getRefs();
 
 const handleClickHome = () => {
   form.classList.remove('hidden');
@@ -20,40 +35,63 @@ const handleClickLibrary = () => {
   homeLinkCurrent.classList.remove('current');
 };
 
-const libraryWatchedColor = () => {
-  libraryWatched.classList.add('active');
-  libraryQueue.classList.remove('active');
-};
-
-const libraryQueueColor = () => {
-  libraryWatched.classList.remove('active');
-  libraryQueue.classList.add('active');
-};
-
 homeLink.forEach(link => {
   link.addEventListener('click', handleClickHome);
 });
 libraryLink.addEventListener('click', handleClickLibrary);
 
-libraryWatched.addEventListener('click', libraryWatchedColor);
-libraryQueue.addEventListener('click', libraryQueueColor);
+const themeDark = () => {
+  const h2 = root.querySelectorAll('h2');
+  h2.forEach(el => {
+    el.style.color = '#ffffff';
+  })
+  document.body.classList.add('dark');
+  labelMoonSun.classList.add('labelDark'); 
+  ballMoonSun.classList.remove('ballDark');
+  footerMoonSun.classList.add('footerDark'); 
+  footerTextMoonSun.classList.add('footerTextDark');
+};
+
+const themeLight = () => {
+  const h2 = root.querySelectorAll('h2');
+  h2.forEach(el => {
+    el.style.color = '#000000';
+  })
+  document.body.classList.remove('dark');
+  labelMoonSun.classList.remove('labelDark'); 
+  ballMoonSun.classList.add('ballDark'); 
+  footerMoonSun.classList.remove('footerDark'); 
+  footerTextMoonSun.classList.remove('footerTextDark');
+};
+
+
+if (localStorage.getItem('theme')===null){
+  localStorage.setItem('theme', "false");
+} 
+
+themeStatus ();
+
+function themeStatus () {
+  if (localStorage.getItem('theme')==="true") {
+    chk.checked = true; 
+    themeDark();
+  } else {
+    chk.checked = false;
+    themeLight();
+  }
+}
+
+function changeStatus () {
+  if (localStorage.getItem('theme')==="true") {
+    localStorage.setItem('theme', "false");
+    themeLight();
+  } else {
+    localStorage.setItem('theme', "true"); 
+    themeDark();
+  }
+}
+
+chk.addEventListener('change', changeStatus);
 
 
 
-
-
-
-if(!localStorage.theme) localStorage.theme = 'light';
-
-
-chk.addEventListener('change', () => {
-	document.body.classList.toggle('dark');
-  labelMoonSun.classList.toggle('labelDark');
-  localStorage.theme = document.body.className || "light"
-});
-
-
-// ballMoonSun.classList.toggle('ballDark');
-// if (localStorage.getItem('theme') = 'dark') {
-
-// }

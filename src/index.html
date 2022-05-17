@@ -26,6 +26,16 @@
 
         <div id="root">
           <div class="container">
+            <div class="splide splide-size">
+              <div class="splide__track">
+                <ul class="splide__list">
+                </ul>
+                <div class="splide__progress">
+                  <div class="splide__progress__bar slider-progres-style">
+                  </div>
+                </div>
+              </div>
+            </div>
             <ul class="films-grid"></ul>
           </div>
           <include src="./partials/main/gallery_container.html"></include>
@@ -33,6 +43,9 @@
       </main>
       <include src="./partials/footer/footer.html"></include>
     </div>
+
+    <include src="./partials/helpers/scroll-up.html"></include>
+
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
   </body>
