@@ -44,7 +44,11 @@ function getRefs() {
     root: document.querySelector('#root'),
     footerMoonSun: document.querySelector('.footer'),
     footerTextMoonSun: document.querySelector('.footer__section-text'),
+<<<<<<< HEAD
+    bodyMoonSun: document.querySelector('body'),
+=======
 
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
   };
 }
 

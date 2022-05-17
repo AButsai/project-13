@@ -25,12 +25,25 @@
   }
 }
 
+<<<<<<< HEAD
+.card-titleDark{
+  color: $color-white;
+}
+
+.card-genres{
+    color: $bg-active;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+=======
 .card-genres {
   color: $bg-active;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
 }
 
 .card-trailer {

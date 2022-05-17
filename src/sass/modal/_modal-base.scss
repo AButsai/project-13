@@ -41,7 +41,13 @@
     width: 32px;
     height: 32px;
   }
+
 }
+
+&.dark-theme {
+  background-color: $color-black;
+  color: $color-white;
+} 
 
 }
 

@@ -1,8 +1,12 @@
 import genresJSON from '../../json/./genres/genres.json';
 import createFilmsList from '../library/library';
+<<<<<<< HEAD
+import { themes } from '../header/header.js';
+=======
 import {createSlider} from './slider-films';
 
 const themaDark = localStorage.getItem('theme');
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
 
 // принимает  responce.results
 export const changeGenresIdForName = function (films) {
@@ -60,6 +64,7 @@ function correctGenres(filmsInfo) {
 export const renderFilmCard = function (film) {
   const urlImg = 'https://image.tmdb.org/t/p/w500';
   let img = '';
+  const isTheme = themes();
 
   if (film.poster_path === null) {
     img = 'https://github.com/AButsai/project-13/blob/dev/src/images/plug.jpg?raw=true';
@@ -71,12 +76,19 @@ export const renderFilmCard = function (film) {
     <a href="#">
       <div class="img__wrapper">
         <img class="card-img" src="${img}" alt="${film.title}" data-index = ${film.id}>
+<<<<<<< HEAD
+        <h2 class="card-title ${isTheme ? 'card-titleDark':''}">${film.title.toUpperCase()}</h2>
+        <p class="card-genres">${film.genres}
+        | ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p> 
+        <a href="#" class="card-trailer"></a>                
+=======
         <a href="#" class="card-trailer" id="${film.id}"></a> 
       </div>
         <h2 class="card-title">${film.title.toUpperCase()}</h2>
         <p class="card-genres">${film.genres}               
          ${film.release_date !== undefined ? film.release_date.slice(0, 4) : ''}</p>            
 
+>>>>>>> 66426b70bbfc1a5f03a896b3edad32ba1c6834c3
     </a>  
         </li>`;
 };

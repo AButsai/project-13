@@ -81,6 +81,11 @@
   }
 }
 
+.darkModal {
+  background-color: $color-black;
+  color: $color-white;
+}
+
 .modal-film-list {
   padding: 0;
   margin-bottom: 20px;
@@ -123,6 +128,10 @@
   }
 }
 
+.modal-film-listDark {
+  color: $color-black;
+}
+
 .button-list {
   display: flex;
   margin-bottom: 41px;
@@ -156,14 +165,10 @@
 
     @media screen and (min-width: 1024px) {
       width: 136px;
-
     }
-
-   
   }
-
-
 }
+
 .button-list{
   justify-content: space-between;
 
@@ -177,8 +182,11 @@
   @media screen and (min-width: 1024px) {
   justify-content: left;
   }
+}
 
-
+.button-listDark {
+  border: 1px solid $color-white;
+  color: $color-white;
 }
 
 
